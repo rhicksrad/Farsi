@@ -3,19 +3,16 @@ export const DIFFICULTIES = {
     bankSize: 4,
     fallDuration: 12_000,
     showPhonetic: true,
-    showEnglish: true,
   },
   medium: {
     bankSize: 8,
     fallDuration: 10_000,
     showPhonetic: false,
-    showEnglish: true,
   },
   hard: {
     bankSize: 20,
     fallDuration: 8_000,
     showPhonetic: false,
-    showEnglish: false,
   },
 };
 
@@ -44,7 +41,7 @@ export function visibleClues(difficulty) {
   if (!settings) throw new RangeError(`Unknown difficulty: ${difficulty}`);
   return {
     phonetic: settings.showPhonetic,
-    english: settings.showEnglish,
+    english: false,
     persian: true,
   };
 }
@@ -60,4 +57,3 @@ function shuffle(values, random) {
   }
   return shuffled;
 }
-

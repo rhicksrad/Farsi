@@ -1,14 +1,16 @@
 # Farsi learning game
 
-A web-based Persian (Farsi) learning game inspired by classic artillery defense games. Match falling Persian words with English words from your ammunition bank before they reach the city.
+A web-based Persian (Farsi) learning game that combines Missile Command's interception loop with a Scorched Earth-style artillery map. Match incoming Persian word-shells with English shells from your ammunition bank before they hit your position.
 
 ## Game modes
 
-- **Beginner:** phonetic pronunciation, English meaning, and Persian script; 4-word bank.
-- **Medium:** English meaning and Persian script; 8-word bank.
+- **Beginner:** phonetic pronunciation and Persian script; 4-word bank.
+- **Medium:** Persian script only; 8-word bank.
 - **Hard:** Persian script only; 20-word bank.
 
-Correct answers launch a shot, build a score multiplier, and destroy the incoming word. Wrong answers cost points, and words that reach the ground cost one of three city lives.
+Correct answers launch a ballistic shot, build a score multiplier, and destroy the incoming word. Misses and incoming rounds permanently excavate the terrain for that game; the blasted rock fragments are Matter.js rigid bodies with gravity, rotation, collision, bounce, and settling. Words that reach your position also cost one of three armor points.
+
+The artillery and desert village use CC BY 4.0 models downloaded from Sketchfab. Full creator links and modification notes are listed in [third-party notices](THIRD_PARTY_NOTICES.md) and in the game's 3D asset credits.
 
 ## Local development
 

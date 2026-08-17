@@ -1,6 +1,7 @@
 import "./style.css";
 import { WORDS } from "./data/words.js";
 import { DIFFICULTIES, buildWordBank, pickNextWord } from "./game.js";
+import { setupTerrain } from "./terrain.js";
 
 const elements = {
   arena: document.querySelector("[data-arena]"),
@@ -10,7 +11,6 @@ const elements = {
   cannon: document.querySelector("[data-cannon]"),
   difficulty: document.querySelector("[data-difficulty]"),
   dictionaryStatus: document.querySelector("[data-dictionary-status]"),
-  english: document.querySelector("[data-english]"),
   finalScore: document.querySelector("[data-final-score]"),
   instructions: document.querySelector("[data-instructions]"),
   lives: document.querySelector("[data-lives]"),
@@ -22,13 +22,15 @@ const elements = {
   score: document.querySelector("[data-score]"),
   streak: document.querySelector("[data-streak]"),
   target: document.querySelector("[data-target]"),
+  trajectories: document.querySelector("[data-trajectories]"),
 };
 
 const state = {
   answerLocked: false,
   currentWord: null,
   difficulty: "beginner",
-  fallAnimation: null,
+  incomingAnimation: null,
+  incomingProgress: 0,
   gameId: 0,
   lives: 3,
   nextRoundTimer: null,
@@ -45,14 +47,22 @@ elements.difficulty.addEventListener("change", () => {
 });
 elements.restart.addEventListener("click", startGame);
 
+const terrain = setupTerrain(elements.arena);
 startGame();
 showDictionaryStatus();
+import("./scene.js")
+  .then(({ setupArtilleryScene }) => setupArtilleryScene(elements.arena))
+  .catch((error) => {
+    console.error("Could not load the 3D artillery scene.", error);
+  });
 
 function startGame() {
   state.gameId += 1;
   clearTimeout(state.nextRoundTimer);
   state.nextRoundTimer = null;
-  cancelFall();
+  cancelIncoming();
+  elements.trajectories.replaceChildren();
+  terrain.reset();
   state.answerLocked = false;
   state.currentWord = null;
   state.lives = 3;
@@ -73,30 +83,119 @@ function spawnWord() {
 
   elements.target.className = "incoming-word";
   elements.phonetic.textContent = state.currentWord.phonetic;
-  elements.english.textContent = state.currentWord.english;
   elements.persian.textContent = state.currentWord.persian;
   elements.phonetic.hidden = !settings.showPhonetic;
-  elements.english.hidden = !settings.showEnglish;
   elements.message.textContent = "";
   renderBank(bank);
 
-  const safeMargin = Math.max(88, elements.target.offsetWidth / 2 + 12);
-  const horizontalRange = Math.max(0, elements.arena.clientWidth - safeMargin * 2);
-  elements.target.style.left = `${safeMargin + Math.random() * horizontalRange}px`;
+  startIncomingFlight(settings.fallDuration);
+}
 
-  const endTop = Math.max(180, elements.arena.clientHeight - 178);
-  state.fallAnimation = elements.target.animate(
-    [
-      { transform: "translate(-50%, -120px) rotate(-1deg)" },
-      { transform: `translate(-50%, ${endTop}px) rotate(1deg)` },
-    ],
-    {
-      duration: settings.fallDuration,
-      easing: "linear",
-      fill: "forwards",
+function startIncomingFlight(duration) {
+  cancelIncoming();
+  state.incomingProgress = 0;
+  const width = elements.arena.clientWidth;
+  const height = elements.arena.clientHeight;
+  const start = { x: width * 0.84, y: height * 0.27 };
+  const control = {
+    x: width * (0.5 + (Math.random() - 0.5) * 0.12),
+    y: height * (0.04 + Math.random() * 0.07),
+  };
+  const endX = width * 0.17;
+  const end = {
+    x: endX,
+    y: terrain.getSurfaceY(endX) - elements.target.offsetHeight * 0.46,
+  };
+
+  addTrajectory(start, control, end, "incoming-trail");
+  positionOnCurve(elements.target, start, control, end, 0);
+
+  let frameId;
+  let canceled = false;
+  let paused = false;
+  const startedAt = performance.now();
+
+  const tick = (now) => {
+    if (canceled || paused) return;
+    const progress = Math.min(1, (now - startedAt) / duration);
+    state.incomingProgress = progress;
+    positionOnCurve(elements.target, start, control, end, progress);
+
+    if (progress === 1) {
+      state.incomingAnimation = null;
+      handleImpact();
+      return;
+    }
+    frameId = requestAnimationFrame(tick);
+  };
+
+  frameId = requestAnimationFrame(tick);
+  state.incomingAnimation = {
+    pause() {
+      paused = true;
+      cancelAnimationFrame(frameId);
     },
+    cancel() {
+      canceled = true;
+      cancelAnimationFrame(frameId);
+    },
+  };
+}
+
+function addTrajectory(start, control, end, className) {
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("class", `trajectory ${className}`);
+  path.setAttribute(
+    "d",
+    `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${control.x.toFixed(1)} ${control.y.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`,
   );
-  state.fallAnimation.onfinish = handleImpact;
+  elements.trajectories.append(path);
+
+  const paths = elements.trajectories.querySelectorAll("path");
+  if (paths.length > 14) paths[0].remove();
+  return path;
+}
+
+function positionOnCurve(element, start, control, end, progress) {
+  const point = pointOnCurve(start, control, end, progress);
+  element.style.left = `${point.x}px`;
+  element.style.top = `${point.y}px`;
+  element.style.transform = `translate(-50%, -50%) rotate(${(progress - 0.5) * 3}deg)`;
+}
+
+function animateAlongCurve(element, start, control, end, duration) {
+  return new Promise((resolve) => {
+    const startedAt = performance.now();
+    const tick = (now) => {
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const point = pointOnCurve(start, control, end, progress);
+      element.style.left = `${point.x}px`;
+      element.style.top = `${point.y}px`;
+      element.style.transform = "translate(-50%, -50%)";
+
+      if (progress === 1) {
+        element.remove();
+        resolve();
+      } else {
+        requestAnimationFrame(tick);
+      }
+    };
+    requestAnimationFrame(tick);
+  });
+}
+
+function pointOnCurve(start, control, end, progress) {
+  const inverse = 1 - progress;
+  return {
+    x:
+      inverse * inverse * start.x +
+      2 * inverse * progress * control.x +
+      progress * progress * end.x,
+    y:
+      inverse * inverse * start.y +
+      2 * inverse * progress * control.y +
+      progress * progress * end.y,
+  };
 }
 
 function renderBank(words) {
@@ -124,6 +223,7 @@ async function fireAnswer(button, word) {
     button.classList.remove("miss");
     void button.offsetWidth;
     button.classList.add("miss");
+    void animateShot(false);
     showMessage("Miss! Try another shell.", "miss");
     updateScoreboard();
     return;
@@ -132,11 +232,11 @@ async function fireAnswer(button, word) {
   state.answerLocked = true;
   const gameId = state.gameId;
   setBankDisabled(true);
-  state.fallAnimation?.pause();
-  await animateShot();
+  state.incomingAnimation?.pause();
+  await animateShot(true);
   if (gameId !== state.gameId) return;
 
-  state.fallAnimation?.cancel();
+  state.incomingAnimation?.cancel();
   state.streak += 1;
   state.score += 100 + Math.max(0, state.streak - 1) * 20;
   elements.target.classList.add("destroyed");
@@ -145,38 +245,50 @@ async function fireAnswer(button, word) {
   scheduleNextRound(650);
 }
 
-function animateShot() {
+async function animateShot(isHit) {
   const arenaRect = elements.arena.getBoundingClientRect();
   const cannonRect = elements.cannon.getBoundingClientRect();
   const targetRect = elements.target.getBoundingClientRect();
+  const start = {
+    x: cannonRect.left + cannonRect.width / 2 - arenaRect.left,
+    y: cannonRect.top - arenaRect.top,
+  };
+  const missX = arenaRect.width * (0.5 + Math.random() * 0.38);
+  const end = isHit
+    ? {
+        x: targetRect.left + targetRect.width / 2 - arenaRect.left,
+        y: targetRect.top + targetRect.height / 2 - arenaRect.top,
+      }
+    : { x: missX, y: terrain.getSurfaceY(missX) - 3 };
+  const control = {
+    x: (start.x + end.x) / 2,
+    y: Math.max(22, Math.min(start.y, end.y) - arenaRect.height * 0.28),
+  };
+
+  addTrajectory(start, control, end, isHit ? "player-trail" : "miss-trail");
+  elements.cannon.classList.remove("recoil");
+  void elements.cannon.offsetWidth;
+  elements.cannon.classList.add("recoil");
+
   const shot = document.createElement("span");
   shot.className = "shot";
   shot.setAttribute("aria-hidden", "true");
   elements.arena.append(shot);
-
-  const startX = cannonRect.left + cannonRect.width / 2 - arenaRect.left;
-  const startY = cannonRect.top - arenaRect.top;
-  const targetX = targetRect.left + targetRect.width / 2 - arenaRect.left;
-  const targetY = targetRect.top + targetRect.height / 2 - arenaRect.top;
-  shot.style.left = `${startX}px`;
-  shot.style.top = `${startY}px`;
-
-  const animation = shot.animate(
-    [
-      { transform: "translate(-50%, -50%) scale(0.7)", opacity: 1 },
-      {
-        transform: `translate(${targetX - startX - 4}px, ${targetY - startY - 4}px) scale(1.35)`,
-        opacity: 1,
-      },
-    ],
-    { duration: 360, easing: "cubic-bezier(.3,.8,.4,1)" },
-  );
-  return animation.finished.finally(() => shot.remove());
+  await animateAlongCurve(shot, start, control, end, isHit ? 540 : 700);
+  if (!isHit) terrain.explode(end.x, end.y, Math.min(38, arenaRect.width * 0.048));
 }
 
 function handleImpact() {
   if (state.answerLocked) return;
   state.answerLocked = true;
+  const arenaRect = elements.arena.getBoundingClientRect();
+  const targetRect = elements.target.getBoundingClientRect();
+  const impactX = targetRect.left + targetRect.width / 2 - arenaRect.left;
+  terrain.explode(
+    impactX,
+    terrain.getSurfaceY(impactX),
+    Math.min(54, arenaRect.width * 0.065),
+  );
   state.lives -= 1;
   state.streak = 0;
   elements.target.classList.add("impact");
@@ -199,17 +311,16 @@ function scheduleNextRound(delay) {
 }
 
 function endGame() {
-  cancelFall();
+  cancelIncoming();
   setBankDisabled(true);
   elements.finalScore.textContent = state.score.toLocaleString();
   elements.overlay.hidden = false;
 }
 
-function cancelFall() {
-  if (state.fallAnimation) {
-    state.fallAnimation.onfinish = null;
-    state.fallAnimation.cancel();
-    state.fallAnimation = null;
+function cancelIncoming() {
+  if (state.incomingAnimation) {
+    state.incomingAnimation.cancel();
+    state.incomingAnimation = null;
   }
 }
 
@@ -231,10 +342,8 @@ function updateScoreboard() {
 function updateDifficultyCopy() {
   const settings = DIFFICULTIES[state.difficulty];
   const clues = settings.showPhonetic
-    ? "phonetic, English, and Persian clues"
-    : settings.showEnglish
-      ? "English and Persian clues"
-      : "Persian script only";
+    ? "phonetic and Persian clues"
+    : "Persian script only";
   elements.instructions.textContent = `${capitalize(state.difficulty)} mode: ${clues}.`;
   elements.bankCount.textContent = `${settings.bankSize} shells`;
 }

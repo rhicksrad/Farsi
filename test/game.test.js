@@ -8,6 +8,7 @@ import {
   pickNextWord,
   visibleClues,
 } from "../src/game.js";
+import { carveCrater, createTerrainProfile } from "../src/terrain-model.js";
 
 test("difficulty modes use the requested bank sizes", () => {
   assert.equal(DIFFICULTIES.beginner.bankSize, 4);
@@ -18,12 +19,12 @@ test("difficulty modes use the requested bank sizes", () => {
 test("difficulty modes progressively remove clues", () => {
   assert.deepEqual(visibleClues("beginner"), {
     phonetic: true,
-    english: true,
+    english: false,
     persian: true,
   });
   assert.deepEqual(visibleClues("medium"), {
     phonetic: false,
-    english: true,
+    english: false,
     persian: true,
   });
   assert.deepEqual(visibleClues("hard"), {
@@ -57,3 +58,19 @@ test("reviewed vocabulary has unique complete entries", () => {
   }
 });
 
+test("terrain starts as a deep Scorched Earth valley", () => {
+  const profile = createTerrainProfile(1000, 600);
+  assert.ok(profile[400] > profile[100] + 250);
+  assert.ok(profile[400] > profile[850] + 250);
+});
+
+test("an explosion permanently carves only its local terrain", () => {
+  const profile = createTerrainProfile(1000, 600);
+  const untouched = profile[300];
+  const impactY = profile[800];
+  const before = profile[800];
+
+  assert.equal(carveCrater(profile, 800, impactY, 42, 600), true);
+  assert.ok(profile[800] > before + 25);
+  assert.equal(profile[300], untouched);
+});
