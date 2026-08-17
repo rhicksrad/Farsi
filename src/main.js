@@ -392,7 +392,7 @@ function updateDifficultyCopy() {
       ? "Latin spelling and Persian script"
       : "Persian script only";
   elements.instructions.textContent = `${capitalize(state.difficulty)} mode: ${clues}.`;
-  elements.bankCount.textContent = `${settings.bankSize} shells`;
+  elements.bankCount.textContent = `${settings.bankSize} words`;
 }
 
 function setBankDisabled(disabled) {

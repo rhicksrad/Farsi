@@ -13,11 +13,7 @@
     <div class="app-shell">
       <header class="topbar">
         <a class="brand" href="./" aria-label="Wordfall home">
-          <span class="brand-mark" aria-hidden="true">و</span>
-          <span>
-            <strong>Wordfall</strong>
-            <small>Farsi defense</small>
-          </span>
+          <strong>Wordfall</strong>
         </a>
 
         <label class="difficulty-control">
@@ -31,24 +27,7 @@
       </header>
 
       <main class="game-layout">
-        <section class="game-panel" aria-labelledby="game-title">
-          <div class="game-heading">
-            <div>
-              <p class="eyebrow">Incoming vocabulary</p>
-              <h1 id="game-title">Hold the ridge.</h1>
-            </div>
-            <p class="instructions" data-instructions>
-              Intercept the Persian word-shell before it hits your position.
-            </p>
-          </div>
-
-          <div class="scoreboard" aria-label="Game status">
-            <span><small>Score</small><strong data-score>0</strong></span>
-            <span><small>Streak</small><strong data-streak>0</strong></span>
-            <span><small>Best</small><strong data-best>0</strong></span>
-            <span class="lives"><small>Word bank</small><strong data-lives aria-label="Word bank shielded">SHIELDED</strong></span>
-          </div>
-
+        <section class="game-panel" aria-label="Wordfall battlefield">
           <div class="arena" data-arena>
             <div class="sky-glow" aria-hidden="true"></div>
             <div class="cloud cloud-one" aria-hidden="true"></div>
@@ -67,6 +46,30 @@
 
             <canvas class="terrain-canvas" data-ground aria-hidden="true"></canvas>
 
+            <aside class="answer-panel" data-answer-panel aria-labelledby="bank-title">
+              <div class="bank-heading">
+                <h2 id="bank-title">Word bank</h2>
+                <strong class="bank-status" data-lives aria-label="Word bank shielded">SHIELDED</strong>
+                <span class="bank-count" data-bank-count>4 words</span>
+              </div>
+              <div class="word-bank" data-word-bank></div>
+              <p class="source-note" data-dictionary-status hidden>Loading dictionary status…</p>
+              <details class="asset-credits" hidden>
+                <summary>Texture credits</summary>
+                <p>
+                  <a href="https://polyhaven.com/a/rock_ground">Rock Ground</a>
+                  by Rob Tuytel via Poly Haven, CC0.
+                </p>
+              </details>
+            </aside>
+
+            <div class="game-data" hidden>
+              <span data-score>0</span>
+              <span data-streak>0</span>
+              <span data-best>0</span>
+              <span data-instructions></span>
+            </div>
+
             <div class="game-overlay" data-overlay hidden>
               <p class="eyebrow">Word bank hit</p>
               <h2>Rebuild and try again.</h2>
@@ -77,28 +80,6 @@
             </div>
           </div>
         </section>
-
-        <aside class="answer-panel" data-answer-panel aria-labelledby="bank-title">
-          <div class="bank-heading">
-            <div>
-              <p class="eyebrow">Ammunition</p>
-              <h2 id="bank-title">Word bank</h2>
-            </div>
-            <span class="bank-count" data-bank-count>4 shells</span>
-          </div>
-          <p class="bank-help">Fire the English shell that matches the incoming Persian.</p>
-          <div class="word-bank" data-word-bank></div>
-          <p class="source-note" data-dictionary-status>
-            Loading dictionary status…
-          </p>
-          <details class="asset-credits">
-            <summary>Texture credits</summary>
-            <p>
-              <a href="https://polyhaven.com/a/rock_ground">Rock Ground</a>
-              texture pack by Rob Tuytel via Poly Haven, CC0.
-            </p>
-          </details>
-        </aside>
       </main>
     </div>
     <script type="module" src="/src/main.js"></script>
