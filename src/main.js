@@ -41,6 +41,7 @@ const elements = {
   score: document.querySelector("[data-score]"),
   streak: document.querySelector("[data-streak]"),
   target: document.querySelector("[data-target]"),
+  textSize: document.querySelector("[data-text-size]"),
   trajectories: document.querySelector("[data-trajectories]"),
 };
 
@@ -65,6 +66,10 @@ const state = {
 const savedBest = Number.parseInt(localStorage.getItem("wordfall-best") ?? "0", 10);
 elements.best.textContent = Number.isNaN(savedBest) ? "0" : savedBest.toString();
 
+const textSizes = new Set(["small", "medium", "large"]);
+const savedTextSize = localStorage.getItem("wordfall-text-size");
+applyTextSize(textSizes.has(savedTextSize) ? savedTextSize : "medium", false);
+
 elements.difficulty.addEventListener("change", () => {
   state.difficulty = elements.difficulty.value;
   void startGame();
@@ -73,12 +78,22 @@ elements.directionToggle.addEventListener("click", () => {
   state.direction = state.direction === "fa-en" ? "en-fa" : "fa-en";
   void startGame();
 });
+elements.textSize.addEventListener("change", () => {
+  applyTextSize(elements.textSize.value);
+});
 elements.restart.addEventListener("click", () => void startGame());
 document.addEventListener("keydown", handleWordShortcut, true);
 
 const terrain = setupTerrain(elements.arena);
 void startGame();
 void showDictionaryStatus();
+
+function applyTextSize(textSize, persist = true) {
+  const nextSize = textSizes.has(textSize) ? textSize : "medium";
+  document.documentElement.dataset.textSize = nextSize;
+  elements.textSize.value = nextSize;
+  if (persist) localStorage.setItem("wordfall-text-size", nextSize);
+}
 
 async function startGame() {
   state.gameId += 1;
