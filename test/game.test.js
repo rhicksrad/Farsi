@@ -6,8 +6,13 @@ import {
   DIFFICULTIES,
   BANK_EXPOSURE_RATIO,
   buildWordBank,
+  createWordDeck,
+  drawWordBankFromDeck,
   pickNextWord,
+  shortcutLabel,
+  streakMultiplier,
   visibleClues,
+  wordNumberFromShortcut,
 } from "../src/game.js";
 import { carveCrater, createTerrainProfile } from "../src/terrain-model.js";
 
@@ -56,6 +61,44 @@ for (const [difficulty, settings] of Object.entries(DIFFICULTIES)) {
 test("the next word does not immediately repeat", () => {
   const previous = WORDS[0];
   assert.notEqual(pickNextWord(WORDS, previous, () => 0).english, previous.english);
+});
+
+test("each game deck contains every lesson word exactly once", () => {
+  const deck = createWordDeck(WORDS, () => 0.42);
+  assert.equal(deck.length, WORDS.length);
+  assert.equal(new Set(deck.map((word) => word.english)).size, WORDS.length);
+});
+
+test("successive beginner banks rotate distractors without repeats", () => {
+  const deck = createWordDeck(WORDS, () => 0.42);
+  const first = drawWordBankFromDeck(deck, WORDS, WORDS[0], 4, () => 0.42);
+  const second = drawWordBankFromDeck(deck, WORDS, WORDS[1], 4, () => 0.42);
+  const firstDistractors = new Set(
+    first.filter((word) => word !== WORDS[0] && word !== WORDS[1]).map((word) => word.english),
+  );
+  const secondDistractors = second
+    .filter((word) => word !== WORDS[1])
+    .map((word) => word.english);
+
+  assert.equal(secondDistractors.some((word) => firstDistractors.has(word)), false);
+});
+
+test("consecutive hits increase the streak multiplier", () => {
+  assert.equal(streakMultiplier(0), 1);
+  assert.equal(streakMultiplier(1), 1);
+  assert.equal(streakMultiplier(2), 2);
+  assert.equal(streakMultiplier(7), 7);
+});
+
+test("number shortcuts cover all twenty bank positions", () => {
+  assert.equal(wordNumberFromShortcut("Digit1"), 1);
+  assert.equal(wordNumberFromShortcut("Numpad9"), 9);
+  assert.equal(wordNumberFromShortcut("Digit0"), 10);
+  assert.equal(wordNumberFromShortcut("Digit1", true), 11);
+  assert.equal(wordNumberFromShortcut("Numpad9", true), 19);
+  assert.equal(wordNumberFromShortcut("Digit0", true), 20);
+  assert.equal(shortcutLabel(9), "0");
+  assert.equal(shortcutLabel(19), "Control+0");
 });
 
 test("reviewed vocabulary has unique complete entries", () => {

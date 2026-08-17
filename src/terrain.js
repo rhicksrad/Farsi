@@ -192,16 +192,15 @@ export function setupTerrain(arena) {
     context.fillRect(0, 0, width, height);
     context.restore();
 
-    context.globalAlpha = 1;
-    traceSurface(0);
-    context.strokeStyle = "rgb(27 31 25 / 62%)";
-    context.lineWidth = 5;
+    context.save();
+    traceGroundShape();
+    context.clip();
+    traceSurface(1.5);
+    context.filter = "blur(1.4px)";
+    context.strokeStyle = "rgb(18 23 19 / 34%)";
+    context.lineWidth = 3;
     context.stroke();
-
-    traceSurface(0);
-    context.strokeStyle = "#9e966e";
-    context.lineWidth = 1.35;
-    context.stroke();
+    context.restore();
 
     for (const particle of dust) drawDust(particle, performance.now());
     for (const fragment of debris) drawFragment(fragment);

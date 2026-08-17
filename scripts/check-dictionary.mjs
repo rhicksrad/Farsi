@@ -38,11 +38,39 @@ if (translationPairs !== manifest.uniqueTranslationPairs) {
   );
 }
 
+const gameHeadwords = await readJson(new URL("game-headwords.json", directory));
+if (gameHeadwords.length < 15_000) {
+  throw new Error(`Clean gameplay index is unexpectedly small: ${gameHeadwords.length}.`);
+}
+for (const english of gameHeadwords) {
+  if (!/^[A-Za-z]+(?:['’-][A-Za-z]+)*$/.test(english)) {
+    throw new Error(`Unclean gameplay headword: ${english}`);
+  }
+}
+
+const hardWords = await readJson(new URL("game-hard.json", directory));
+if (hardWords.length < 11_000) {
+  throw new Error(`Compact translation pool is unexpectedly small: ${hardWords.length}.`);
+}
+const pronounced = await readJson(new URL("game-pronounced.json", directory));
+if (pronounced.length < 2_800) {
+  throw new Error(`Gameplay pronunciation pool is unexpectedly small: ${pronounced.length}.`);
+}
+for (const [poolName, words] of [["hard", hardWords], ["pronounced", pronounced]]) {
+  for (const word of words) {
+    if (!word.english || !word.persian || /\s/.test(word.english) || /\s/.test(word.persian)) {
+      throw new Error(`Invalid ${poolName} gameplay entry.`);
+    }
+    if (poolName === "pronounced" && (!word.phonetic || !word.latin)) {
+      throw new Error("Pronunciation-linked entry is missing a pronunciation.");
+    }
+  }
+}
+
 console.log(
-  `Dictionary OK: ${headwords.toLocaleString()} headwords, ${translationPairs.toLocaleString()} translation pairs.`,
+  `Dictionary OK: ${headwords.toLocaleString()} source headwords; ${gameHeadwords.length.toLocaleString()} clean bank words, ${hardWords.length.toLocaleString()} compact translations, ${pronounced.length.toLocaleString()} pronunciation-linked entries.`,
 );
 
 async function readJson(url) {
   return JSON.parse(await readFile(url, "utf8"));
 }
-
