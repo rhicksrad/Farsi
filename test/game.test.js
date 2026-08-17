@@ -11,10 +11,12 @@ import {
   drawWordBankFromDeck,
   findTerrainContactX,
   groundImpactProfile,
+  missFeedback,
   pickNextWord,
   shortcutLabel,
   streakMultiplier,
   visibleClues,
+  wordTextForBank,
   wordNumberFromShortcut,
 } from "../src/game.js";
 import { carveCrater, createTerrainProfile } from "../src/terrain-model.js";
@@ -99,6 +101,21 @@ test("difficulty modes progressively remove clues", () => {
     english: false,
     persian: true,
   });
+});
+
+test("reverse direction sends English inbound and puts Persian in the bank", () => {
+  assert.deepEqual(visibleClues("hard", "en-fa"), {
+    phonetic: false,
+    latin: false,
+    english: true,
+    persian: false,
+  });
+  assert.equal(wordTextForBank(WORDS[0], "en-fa"), WORDS[0].persian);
+  assert.equal(wordTextForBank(WORDS[0], "fa-en"), WORDS[0].english);
+  assert.equal(
+    missFeedback(WORDS[0], "en-fa"),
+    `Miss — “${WORDS[0].english}” means ${WORDS[0].persian}.`,
+  );
 });
 
 for (const [difficulty, settings] of Object.entries(DIFFICULTIES)) {

@@ -7,8 +7,11 @@ import {
   drawWordBankFromDeck,
   findTerrainContactX,
   groundImpactProfile,
+  missFeedback,
   shortcutLabel,
   streakMultiplier,
+  visibleClues,
+  wordTextForBank,
   wordNumberFromShortcut,
 } from "./game.js";
 import { createDictionaryRound, resetDictionaryDecks } from "./dictionary.js";
@@ -22,7 +25,10 @@ const elements = {
   best: document.querySelector("[data-best]"),
   difficulty: document.querySelector("[data-difficulty]"),
   dictionaryStatus: document.querySelector("[data-dictionary-status]"),
+  directionLabel: document.querySelector("[data-direction-label]"),
+  directionToggle: document.querySelector("[data-direction-toggle]"),
   finalScore: document.querySelector("[data-final-score]"),
+  english: document.querySelector("[data-english]"),
   instructions: document.querySelector("[data-instructions]"),
   latin: document.querySelector("[data-latin]"),
   lives: document.querySelector("[data-lives]"),
@@ -45,6 +51,7 @@ const state = {
   bankStatus: "shielded",
   currentWord: null,
   difficulty: "beginner",
+  direction: "fa-en",
   incomingAnimation: null,
   incomingEnd: null,
   gameId: 0,
@@ -60,6 +67,10 @@ elements.best.textContent = Number.isNaN(savedBest) ? "0" : savedBest.toString()
 
 elements.difficulty.addEventListener("change", () => {
   state.difficulty = elements.difficulty.value;
+  void startGame();
+});
+elements.directionToggle.addEventListener("click", () => {
+  state.direction = state.direction === "fa-en" ? "en-fa" : "fa-en";
   void startGame();
 });
 elements.restart.addEventListener("click", () => void startGame());
@@ -93,6 +104,7 @@ async function startGame() {
   elements.message.textContent = "Loading dictionary…";
   renderBank([]);
   updateScoreboard();
+  updateDirectionControl();
   updateDifficultyCopy();
   try {
     await resetDictionaryDecks(state.difficulty);
@@ -128,9 +140,13 @@ async function spawnWord() {
   elements.target.style.opacity = "";
   elements.phonetic.textContent = state.currentWord.phonetic;
   elements.latin.textContent = state.currentWord.latin;
+  elements.english.textContent = state.currentWord.english;
   elements.persian.textContent = state.currentWord.persian;
-  elements.phonetic.hidden = !settings.showPhonetic;
-  elements.latin.hidden = !settings.showLatin;
+  const clues = visibleClues(state.difficulty, state.direction);
+  elements.phonetic.hidden = !clues.phonetic;
+  elements.latin.hidden = !clues.latin;
+  elements.english.hidden = !clues.english;
+  elements.persian.hidden = !clues.persian;
   elements.message.textContent = "";
   renderBank(round.bank);
 
@@ -300,7 +316,12 @@ function renderBank(words) {
     number.textContent = (index + 1).toString();
     const label = document.createElement("span");
     label.className = "word-label";
-    label.textContent = word.english;
+    label.textContent = wordTextForBank(word, state.direction);
+    if (state.direction === "en-fa") {
+      button.classList.add("persian-bank");
+      label.lang = "fa";
+      label.dir = "rtl";
+    }
     button.append(number, label);
     button.addEventListener("click", () => fireAnswer(button, word));
     elements.bank.append(button);
@@ -481,6 +502,11 @@ function updateScoreboard() {
 
 function updateDifficultyCopy() {
   const settings = DIFFICULTIES[state.difficulty];
+  if (state.direction === "en-fa") {
+    elements.instructions.textContent = `${capitalize(state.difficulty)} mode: English inbound, Persian word bank.`;
+    elements.bankCount.textContent = `${settings.bankSize} words`;
+    return;
+  }
   const clues = settings.showPhonetic
     ? "pronunciation, Latin spelling, and Persian script"
     : settings.showLatin
@@ -488,6 +514,18 @@ function updateDifficultyCopy() {
       : "Persian script only";
   elements.instructions.textContent = `${capitalize(state.difficulty)} mode: ${clues}.`;
   elements.bankCount.textContent = `${settings.bankSize} words`;
+}
+
+function updateDirectionControl() {
+  const reversed = state.direction === "en-fa";
+  elements.directionLabel.textContent = reversed ? "EN→FA" : "FA→EN";
+  elements.directionToggle.setAttribute("aria-pressed", reversed.toString());
+  elements.directionToggle.setAttribute(
+    "aria-label",
+    reversed
+      ? "Switch to Persian inbound and English word bank"
+      : "Switch to English inbound and Persian word bank",
+  );
 }
 
 function setBankDisabled(disabled) {
@@ -502,10 +540,7 @@ function showMessage(message, result) {
 }
 
 function showMissMessage() {
-  showMessage(
-    `Miss — ${state.currentWord.persian} means “${state.currentWord.english}.”`,
-    "miss",
-  );
+  showMessage(missFeedback(state.currentWord, state.direction), "miss");
 }
 
 async function showDictionaryStatus() {

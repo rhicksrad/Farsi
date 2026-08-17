@@ -119,6 +119,24 @@ button { -webkit-tap-highlight-color: transparent; }
   font-weight: 800;
 }
 
+.direction-toggle {
+  display: flex;
+  min-height: 2.25rem;
+  padding: 0.45rem 0.6rem;
+  gap: 0.32rem;
+  align-items: center;
+  border: 1px solid rgb(236 199 126 / 30%);
+  border-radius: 0.6rem;
+  color: #f6dfae;
+  background: rgb(7 39 38 / 58%);
+  cursor: pointer;
+}
+
+.direction-toggle span { color: rgb(245 234 214 / 58%); font-size: 0.72rem; }
+.direction-toggle strong { font-size: 0.68rem; letter-spacing: 0.04em; }
+.direction-toggle:hover { border-color: rgb(236 199 126 / 62%); background: rgb(18 61 56 / 82%); }
+.direction-toggle[aria-pressed="true"] { color: #fff0cf; background: rgb(124 71 35 / 48%); }
+
 .difficulty-control {
   display: flex;
   gap: 0.75rem;
@@ -266,6 +284,12 @@ h2 { font-size: 1.15rem; }
 
 .word-phonetic { color: #ffe0ac; font-size: 0.46rem; font-weight: 700; letter-spacing: 0.05em; }
 .word-latin { color: #f4ead4; font-size: 0.5rem; font-weight: 650; letter-spacing: 0.025em; }
+.word-english {
+  color: #fff4d8;
+  font-size: clamp(0.76rem, 1.5vw, 1rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
 .word-persian {
   margin-top: -0.02rem;
   font-family: "Changa", Tahoma, sans-serif;
@@ -511,6 +535,13 @@ h2 { font-size: 1.15rem; }
   white-space: nowrap;
 }
 
+.word-shell.persian-bank .word-label {
+  font-family: "Changa", Tahoma, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-align: right;
+}
+
 .word-shell.miss { border-color: #b8492f; animation: shake 260ms ease; }
 .source-note {
   display: none;
@@ -558,6 +589,13 @@ h2 { font-size: 1.15rem; }
   .top-stat strong { font-size: 0.76rem; }
   .streak-stat { padding-left: 0.4rem; }
   .streak-stat em { font-size: 0.62rem; }
+  .direction-toggle {
+    min-height: 2rem;
+    padding: 0.38rem 0.45rem;
+    gap: 0.2rem;
+  }
+  .direction-toggle span { display: none; }
+  .direction-toggle strong { font-size: 0.6rem; }
   .difficulty-control { align-items: flex-end; flex-direction: column; gap: 0.25rem; }
   .difficulty-control > span, .brand small { display: none; }
   .difficulty-control select {
@@ -614,6 +652,11 @@ h2 { font-size: 1.15rem; }
   .brand span, .top-stat small, .difficulty-control > span { display: none; }
   .topbar-actions, .top-stats { gap: 0.5rem; }
   .streak-stat { padding-left: 0.5rem; }
+  .direction-toggle {
+    min-height: 1.9rem;
+    padding: 0.32rem 0.45rem;
+  }
+  .direction-toggle span { display: none; }
   .difficulty-control select {
     max-width: 7.7rem;
     padding: 0.42rem 1.45rem 0.42rem 0.55rem;

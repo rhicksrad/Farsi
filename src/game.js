@@ -126,15 +126,36 @@ export function pickNextWord(words, previousWord, random = Math.random) {
   return candidates[Math.floor(random() * candidates.length)];
 }
 
-export function visibleClues(difficulty) {
+export function visibleClues(difficulty, direction = "fa-en") {
   const settings = DIFFICULTIES[difficulty];
   if (!settings) throw new RangeError(`Unknown difficulty: ${difficulty}`);
+  if (direction === "en-fa") {
+    return {
+      phonetic: false,
+      latin: false,
+      english: true,
+      persian: false,
+    };
+  }
+  if (direction !== "fa-en") throw new RangeError(`Unknown direction: ${direction}`);
   return {
     phonetic: settings.showPhonetic,
     latin: settings.showLatin,
     english: false,
     persian: true,
   };
+}
+
+export function wordTextForBank(word, direction = "fa-en") {
+  if (direction === "fa-en") return word.english;
+  if (direction === "en-fa") return word.persian;
+  throw new RangeError(`Unknown direction: ${direction}`);
+}
+
+export function missFeedback(word, direction = "fa-en") {
+  if (direction === "fa-en") return `Miss — ${word.persian} means “${word.english}.”`;
+  if (direction === "en-fa") return `Miss — “${word.english}” means ${word.persian}.`;
+  throw new RangeError(`Unknown direction: ${direction}`);
 }
 
 function shuffle(values, random) {
