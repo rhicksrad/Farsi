@@ -3,18 +3,23 @@ export const DIFFICULTIES = {
     bankSize: 4,
     fallDuration: 12_000,
     showPhonetic: true,
+    showLatin: true,
   },
   medium: {
     bankSize: 8,
     fallDuration: 10_000,
     showPhonetic: false,
+    showLatin: true,
   },
   hard: {
     bankSize: 20,
     fallDuration: 8_000,
     showPhonetic: false,
+    showLatin: false,
   },
 };
+
+export const BANK_EXPOSURE_RATIO = 0.78;
 
 export function buildWordBank(words, answer, size, random = Math.random) {
   if (size > words.length) {
@@ -41,6 +46,7 @@ export function visibleClues(difficulty) {
   if (!settings) throw new RangeError(`Unknown difficulty: ${difficulty}`);
   return {
     phonetic: settings.showPhonetic,
+    latin: settings.showLatin,
     english: false,
     persian: true,
   };

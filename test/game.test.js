@@ -4,6 +4,7 @@ import test from "node:test";
 import { WORDS } from "../src/data/words.js";
 import {
   DIFFICULTIES,
+  BANK_EXPOSURE_RATIO,
   buildWordBank,
   pickNextWord,
   visibleClues,
@@ -16,19 +17,27 @@ test("difficulty modes use the requested bank sizes", () => {
   assert.equal(DIFFICULTIES.hard.bankSize, 20);
 });
 
+test("terrain must be deeply excavated before the word bank is exposed", () => {
+  assert.ok(BANK_EXPOSURE_RATIO > 0.7);
+  assert.ok(BANK_EXPOSURE_RATIO < 0.9);
+});
+
 test("difficulty modes progressively remove clues", () => {
   assert.deepEqual(visibleClues("beginner"), {
     phonetic: true,
+    latin: true,
     english: false,
     persian: true,
   });
   assert.deepEqual(visibleClues("medium"), {
     phonetic: false,
+    latin: true,
     english: false,
     persian: true,
   });
   assert.deepEqual(visibleClues("hard"), {
     phonetic: false,
+    latin: false,
     english: false,
     persian: true,
   });
@@ -54,14 +63,15 @@ test("reviewed vocabulary has unique complete entries", () => {
   assert.equal(new Set(WORDS.map((word) => word.english)).size, WORDS.length);
   assert.equal(new Set(WORDS.map((word) => word.persian)).size, WORDS.length);
   for (const word of WORDS) {
-    assert.ok(word.english && word.persian && word.phonetic);
+    assert.ok(word.english && word.persian && word.phonetic && word.latin);
   }
 });
 
-test("terrain starts as a deep Scorched Earth valley", () => {
+test("terrain starts as one broad earth-filled battlefield", () => {
   const profile = createTerrainProfile(1000, 600);
-  assert.ok(profile[400] > profile[100] + 250);
-  assert.ok(profile[400] > profile[850] + 250);
+  assert.ok(Math.min(...profile) < 200);
+  assert.ok(Math.max(...profile) < 275);
+  assert.ok(Math.max(...profile) - Math.min(...profile) > 60);
 });
 
 test("an explosion permanently carves only its local terrain", () => {
@@ -73,4 +83,19 @@ test("an explosion permanently carves only its local terrain", () => {
   assert.equal(carveCrater(profile, 800, impactY, 42, 600), true);
   assert.ok(profile[800] > before + 25);
   assert.equal(profile[300], untouched);
+});
+
+test("the earth takes several direct hits before the bank is exposed", () => {
+  const height = 600;
+  const centerX = 500;
+  const profile = createTerrainProfile(1000, height);
+  let hits = 0;
+
+  while (profile[centerX] < height * BANK_EXPOSURE_RATIO && hits < 20) {
+    carveCrater(profile, centerX, profile[centerX], 54, height);
+    hits += 1;
+  }
+
+  assert.ok(hits >= 5);
+  assert.ok(hits <= 10);
 });

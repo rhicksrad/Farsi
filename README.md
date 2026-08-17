@@ -1,16 +1,16 @@
 # Farsi learning game
 
-A web-based Persian (Farsi) learning game that combines Missile Command's interception loop with a Scorched Earth-style artillery map. Match incoming Persian word-shells with English shells from your ammunition bank before they hit your position.
+A web-based Persian (Farsi) learning game with top-down word-missile interception and fully destructible Scorched Earth-style terrain. Match incoming Persian missiles with English words from your ammunition bank before they excavate the ground.
 
 ## Game modes
 
-- **Beginner:** phonetic pronunciation and Persian script; 4-word bank.
-- **Medium:** Persian script only; 8-word bank.
+- **Beginner:** phonetic pronunciation, Latin-letter spelling, and Persian script; 4-word bank.
+- **Medium:** Latin-letter spelling and Persian script; 8-word bank.
 - **Hard:** Persian script only; 20-word bank.
 
-Correct answers launch a ballistic shot, build a score multiplier, and destroy the incoming word. Misses and incoming rounds permanently excavate the terrain for that game; the blasted rock fragments are Matter.js rigid bodies with gravity, rotation, collision, bounce, and settling. Words that reach your position also cost one of three armor points.
+Correct answers launch an interceptor, build a score multiplier, and destroy the incoming word. Incoming missiles converge on and permanently excavate the terrain above the word bank; the blasted rock fragments are Matter.js rigid bodies with gravity, rotation, collision, bounce, and settling. The bank is safe while that cover remains. Once repeated impacts open a deep enough crater, the bank becomes exposed and the next missile through ends the run.
 
-The artillery and desert village use CC BY 4.0 models downloaded from Sketchfab. Full creator links and modification notes are listed in [third-party notices](THIRD_PARTY_NOTICES.md) and in the game's 3D asset credits.
+The deformable earth uses Poly Haven's CC0 Rock Ground PBR texture pack. Source details are listed in [third-party notices](THIRD_PARTY_NOTICES.md) and in the game's texture credits.
 
 ## Local development
 

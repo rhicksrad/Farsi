@@ -16,7 +16,6 @@
     "vite": "^7.1.2"
   },
   "dependencies": {
-    "matter-js": "^0.20.0",
-    "three": "^0.179.1"
+    "matter-js": "^0.20.0"
   }
 }

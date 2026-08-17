@@ -46,7 +46,7 @@
             <span><small>Score</small><strong data-score>0</strong></span>
             <span><small>Streak</small><strong data-streak>0</strong></span>
             <span><small>Best</small><strong data-best>0</strong></span>
-            <span class="lives"><small>Armor</small><strong data-lives aria-label="3 lives">♥ ♥ ♥</strong></span>
+            <span class="lives"><small>Word bank</small><strong data-lives aria-label="Word bank shielded">SHIELDED</strong></span>
           </div>
 
           <div class="arena" data-arena>
@@ -59,6 +59,7 @@
             <article class="incoming-word" data-target aria-live="polite">
               <span class="target-ring" aria-hidden="true"></span>
               <span class="word-phonetic" data-phonetic></span>
+              <span class="word-latin" data-latin></span>
               <strong class="word-persian" data-persian lang="fa" dir="rtl"></strong>
             </article>
 
@@ -66,22 +67,9 @@
 
             <canvas class="terrain-canvas" data-ground aria-hidden="true"></canvas>
 
-            <div class="cannon player-cannon" data-cannon aria-hidden="true">
-              <span class="cannon-barrel"></span>
-              <span class="cannon-body"></span>
-              <span class="cannon-wheel left"></span>
-              <span class="cannon-wheel right"></span>
-            </div>
-            <div class="cannon enemy-cannon" aria-hidden="true">
-              <span class="cannon-barrel"></span>
-              <span class="cannon-body"></span>
-              <span class="cannon-wheel left"></span>
-              <span class="cannon-wheel right"></span>
-            </div>
-
             <div class="game-overlay" data-overlay hidden>
-              <p class="eyebrow">Position lost</p>
-              <h2>Re-arm and try again.</h2>
+              <p class="eyebrow">Word bank hit</p>
+              <h2>Rebuild and try again.</h2>
               <p>You scored <strong data-final-score>0</strong> points.</p>
               <button class="primary-button" type="button" data-restart>
                 Play again
@@ -90,7 +78,7 @@
           </div>
         </section>
 
-        <aside class="answer-panel" aria-labelledby="bank-title">
+        <aside class="answer-panel" data-answer-panel aria-labelledby="bank-title">
           <div class="bank-heading">
             <div>
               <p class="eyebrow">Ammunition</p>
@@ -104,13 +92,10 @@
             Loading dictionary status…
           </p>
           <details class="asset-credits">
-            <summary>3D asset credits</summary>
+            <summary>Texture credits</summary>
             <p>
-              Models provided by Sketchfab under CC BY 4.0:
-              <a href="https://sketchfab.com/3d-models/low-poly-cannon-86c7305a399740ce846426bfbaa35f65">Low Poly Cannon</a>
-              by _its_sagar_bro and
-              <a href="https://sketchfab.com/3d-models/low-poly-desert-village-2639191809c4426f8cc0a532ccf8506b">low poly desert village</a>
-              by cubemelongames.
+              <a href="https://polyhaven.com/a/rock_ground">Rock Ground</a>
+              texture pack by Rob Tuytel via Poly Haven, CC0.
             </p>
           </details>
         </aside>

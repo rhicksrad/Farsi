@@ -1,18 +1,24 @@
 import "./style.css";
 import { WORDS } from "./data/words.js";
-import { DIFFICULTIES, buildWordBank, pickNextWord } from "./game.js";
+import {
+  DIFFICULTIES,
+  BANK_EXPOSURE_RATIO,
+  buildWordBank,
+  pickNextWord,
+} from "./game.js";
 import { setupTerrain } from "./terrain.js";
 
 const elements = {
   arena: document.querySelector("[data-arena]"),
+  answerPanel: document.querySelector("[data-answer-panel]"),
   bank: document.querySelector("[data-word-bank]"),
   bankCount: document.querySelector("[data-bank-count]"),
   best: document.querySelector("[data-best]"),
-  cannon: document.querySelector("[data-cannon]"),
   difficulty: document.querySelector("[data-difficulty]"),
   dictionaryStatus: document.querySelector("[data-dictionary-status]"),
   finalScore: document.querySelector("[data-final-score]"),
   instructions: document.querySelector("[data-instructions]"),
+  latin: document.querySelector("[data-latin]"),
   lives: document.querySelector("[data-lives]"),
   message: document.querySelector("[data-message]"),
   overlay: document.querySelector("[data-overlay]"),
@@ -27,12 +33,12 @@ const elements = {
 
 const state = {
   answerLocked: false,
+  bankStatus: "shielded",
   currentWord: null,
   difficulty: "beginner",
   incomingAnimation: null,
-  incomingProgress: 0,
+  incomingEnd: null,
   gameId: 0,
-  lives: 3,
   nextRoundTimer: null,
   score: 0,
   streak: 0,
@@ -50,11 +56,6 @@ elements.restart.addEventListener("click", startGame);
 const terrain = setupTerrain(elements.arena);
 startGame();
 showDictionaryStatus();
-import("./scene.js")
-  .then(({ setupArtilleryScene }) => setupArtilleryScene(elements.arena))
-  .catch((error) => {
-    console.error("Could not load the 3D artillery scene.", error);
-  });
 
 function startGame() {
   state.gameId += 1;
@@ -65,10 +66,11 @@ function startGame() {
   terrain.reset();
   state.answerLocked = false;
   state.currentWord = null;
-  state.lives = 3;
+  state.bankStatus = "shielded";
   state.score = 0;
   state.streak = 0;
   elements.overlay.hidden = true;
+  elements.answerPanel.classList.remove("exposed", "hit");
   elements.message.textContent = "";
   updateScoreboard();
   updateDifficultyCopy();
@@ -83,8 +85,10 @@ function spawnWord() {
 
   elements.target.className = "incoming-word";
   elements.phonetic.textContent = state.currentWord.phonetic;
+  elements.latin.textContent = state.currentWord.latin;
   elements.persian.textContent = state.currentWord.persian;
   elements.phonetic.hidden = !settings.showPhonetic;
+  elements.latin.hidden = !settings.showLatin;
   elements.message.textContent = "";
   renderBank(bank);
 
@@ -93,19 +97,29 @@ function spawnWord() {
 
 function startIncomingFlight(duration) {
   cancelIncoming();
-  state.incomingProgress = 0;
   const width = elements.arena.clientWidth;
-  const height = elements.arena.clientHeight;
-  const start = { x: width * 0.84, y: height * 0.27 };
-  const control = {
-    x: width * (0.5 + (Math.random() - 0.5) * 0.12),
-    y: height * (0.04 + Math.random() * 0.07),
+  const endX = width * (0.46 + Math.random() * 0.08);
+  const direction = Math.random() > 0.5 ? 1 : -1;
+  const horizontalOffset = width * (0.2 + Math.random() * 0.28);
+  const start = {
+    x: Math.max(
+      width * 0.03,
+      Math.min(width * 0.97, endX + direction * horizontalOffset),
+    ),
+    y: -elements.target.offsetHeight * 0.55,
   };
-  const endX = width * 0.17;
+  const impactY = state.bankStatus === "exposed"
+    ? elements.arena.clientHeight * 0.86
+    : terrain.getSurfaceY(endX);
   const end = {
     x: endX,
-    y: terrain.getSurfaceY(endX) - elements.target.offsetHeight * 0.46,
+    y: impactY - elements.target.offsetHeight * 0.44,
   };
+  const control = {
+    x: (start.x + end.x) / 2,
+    y: (start.y + end.y) / 2,
+  };
+  state.incomingEnd = end;
 
   addTrajectory(start, control, end, "incoming-trail");
   positionOnCurve(elements.target, start, control, end, 0);
@@ -118,7 +132,6 @@ function startIncomingFlight(duration) {
   const tick = (now) => {
     if (canceled || paused) return;
     const progress = Math.min(1, (now - startedAt) / duration);
-    state.incomingProgress = progress;
     positionOnCurve(elements.target, start, control, end, progress);
 
     if (progress === 1) {
@@ -247,59 +260,89 @@ async function fireAnswer(button, word) {
 
 async function animateShot(isHit) {
   const arenaRect = elements.arena.getBoundingClientRect();
-  const cannonRect = elements.cannon.getBoundingClientRect();
   const targetRect = elements.target.getBoundingClientRect();
+  const launchX = arenaRect.width * 0.5;
   const start = {
-    x: cannonRect.left + cannonRect.width / 2 - arenaRect.left,
-    y: cannonRect.top - arenaRect.top,
+    x: launchX,
+    y: terrain.getSurfaceY(launchX) - 2,
   };
-  const missX = arenaRect.width * (0.5 + Math.random() * 0.38);
+  const target = {
+    x: targetRect.left + targetRect.width / 2 - arenaRect.left,
+    y: targetRect.top + targetRect.height / 2 - arenaRect.top,
+  };
   const end = isHit
-    ? {
-        x: targetRect.left + targetRect.width / 2 - arenaRect.left,
-        y: targetRect.top + targetRect.height / 2 - arenaRect.top,
-      }
-    : { x: missX, y: terrain.getSurfaceY(missX) - 3 };
+    ? target
+    : {
+        x: Math.max(20, Math.min(arenaRect.width - 20, target.x + (Math.random() > 0.5 ? 72 : -72))),
+        y: Math.max(20, target.y - 36),
+      };
   const control = {
     x: (start.x + end.x) / 2,
-    y: Math.max(22, Math.min(start.y, end.y) - arenaRect.height * 0.28),
+    y: (start.y + end.y) / 2,
   };
 
   addTrajectory(start, control, end, isHit ? "player-trail" : "miss-trail");
-  elements.cannon.classList.remove("recoil");
-  void elements.cannon.offsetWidth;
-  elements.cannon.classList.add("recoil");
 
   const shot = document.createElement("span");
   shot.className = "shot";
   shot.setAttribute("aria-hidden", "true");
   elements.arena.append(shot);
-  await animateAlongCurve(shot, start, control, end, isHit ? 540 : 700);
-  if (!isHit) terrain.explode(end.x, end.y, Math.min(38, arenaRect.width * 0.048));
+  await animateAlongCurve(shot, start, control, end, isHit ? 430 : 520);
+  showAirburst(end, isHit);
 }
 
 function handleImpact() {
   if (state.answerLocked) return;
   state.answerLocked = true;
   const arenaRect = elements.arena.getBoundingClientRect();
-  const targetRect = elements.target.getBoundingClientRect();
-  const impactX = targetRect.left + targetRect.width / 2 - arenaRect.left;
+  const impactX = state.incomingEnd?.x ?? arenaRect.width * 0.5;
+
+  if (state.bankStatus === "exposed") {
+    state.bankStatus = "hit";
+    elements.answerPanel.classList.remove("exposed");
+    elements.answerPanel.classList.add("hit");
+    showAirburst({ x: impactX, y: arenaRect.height * 0.86 }, false);
+    elements.target.classList.add("impact");
+    showMessage(
+      `Word bank hit! ${state.currentWord.persian} means “${state.currentWord.english}.”`,
+      "miss",
+    );
+    updateScoreboard();
+    state.nextRoundTimer = setTimeout(endGame, 750);
+    return;
+  }
+
   terrain.explode(
     impactX,
     terrain.getSurfaceY(impactX),
     Math.min(54, arenaRect.width * 0.065),
   );
-  state.lives -= 1;
   state.streak = 0;
   elements.target.classList.add("impact");
-  showMessage(`Impact! ${state.currentWord.persian} means “${state.currentWord.english}.”`, "miss");
-  updateScoreboard();
 
-  if (state.lives === 0) {
-    state.nextRoundTimer = setTimeout(endGame, 750);
+  const coverDepth = terrain.getSurfaceY(arenaRect.width * 0.5);
+  if (coverDepth >= arenaRect.height * BANK_EXPOSURE_RATIO) {
+    state.bankStatus = "exposed";
+    elements.answerPanel.classList.add("exposed");
+    showMessage("Ground breached — the next missile can hit the word bank!", "miss");
   } else {
-    scheduleNextRound(950);
+    showMessage(
+      `Ground hit — ${state.currentWord.persian} means “${state.currentWord.english}.”`,
+      "miss",
+    );
   }
+  updateScoreboard();
+  scheduleNextRound(950);
+}
+
+function showAirburst(point, isHit) {
+  const burst = document.createElement("span");
+  burst.className = `airburst ${isHit ? "hit" : "miss"}`;
+  burst.style.left = `${point.x}px`;
+  burst.style.top = `${point.y}px`;
+  burst.setAttribute("aria-hidden", "true");
+  elements.arena.append(burst);
+  burst.addEventListener("animationend", () => burst.remove(), { once: true });
 }
 
 function scheduleNextRound(delay) {
@@ -327,10 +370,12 @@ function cancelIncoming() {
 function updateScoreboard() {
   elements.score.textContent = state.score.toLocaleString();
   elements.streak.textContent = state.streak.toString();
-  elements.lives.textContent = ["♥", "♥", "♥"]
-    .map((heart, index) => (index < state.lives ? heart : "♡"))
-    .join(" ");
-  elements.lives.setAttribute("aria-label", `${state.lives} lives`);
+  elements.lives.textContent = state.bankStatus.toUpperCase();
+  elements.lives.dataset.status = state.bankStatus;
+  elements.lives.setAttribute(
+    "aria-label",
+    `Word bank ${state.bankStatus}`,
+  );
 
   const previousBest = Number.parseInt(elements.best.textContent.replaceAll(",", ""), 10);
   if (state.score > previousBest) {
@@ -342,8 +387,10 @@ function updateScoreboard() {
 function updateDifficultyCopy() {
   const settings = DIFFICULTIES[state.difficulty];
   const clues = settings.showPhonetic
-    ? "phonetic and Persian clues"
-    : "Persian script only";
+    ? "pronunciation, Latin spelling, and Persian script"
+    : settings.showLatin
+      ? "Latin spelling and Persian script"
+      : "Persian script only";
   elements.instructions.textContent = `${capitalize(state.difficulty)} mode: ${clues}.`;
   elements.bankCount.textContent = `${settings.bankSize} shells`;
 }

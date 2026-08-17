@@ -16,8 +16,13 @@ export function setupTerrain(arena) {
   let profile = createTerrainProfile(width, height);
   let terrainBodies = [];
   let debris = [];
+  let diffusePattern = null;
+  let roughnessPattern = null;
   let frameId = 0;
   let previousTime = performance.now();
+
+  const diffuseImage = loadTexture("./assets/textures/rock-ground/diffuse.jpg", refreshPatterns);
+  const roughnessImage = loadTexture("./assets/textures/rock-ground/roughness.jpg", refreshPatterns);
 
   function resize() {
     width = Math.max(1, arena.clientWidth);
@@ -28,7 +33,20 @@ export function setupTerrain(arena) {
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
     context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    refreshPatterns();
     reset();
+  }
+
+  function refreshPatterns() {
+    diffusePattern = createScaledPattern(diffuseImage, 0.42);
+    roughnessPattern = createScaledPattern(roughnessImage, 0.42);
+  }
+
+  function createScaledPattern(image, scale) {
+    if (!image.complete || !image.naturalWidth) return null;
+    const pattern = context.createPattern(image, "repeat");
+    pattern?.setTransform(new DOMMatrix().scale(scale));
+    return pattern;
   }
 
   function reset() {
@@ -119,35 +137,52 @@ export function setupTerrain(arena) {
     context.clearRect(0, 0, width, height);
     context.save();
 
-    const terrainGradient = context.createLinearGradient(0, height * 0.26, 0, height);
-    terrainGradient.addColorStop(0, "#65795a");
-    terrainGradient.addColorStop(0.18, "#4b644b");
-    terrainGradient.addColorStop(0.62, "#354938");
-    terrainGradient.addColorStop(1, "#26362e");
-
-    traceSurface(0);
-    context.lineTo(width, height);
-    context.lineTo(0, height);
-    context.closePath();
-    context.fillStyle = terrainGradient;
+    traceGroundShape();
+    context.fillStyle = "#5d5745";
     context.fill();
 
-    context.globalAlpha = 0.18;
-    context.strokeStyle = "#d5b873";
-    context.lineWidth = 8;
-    for (const depth of [48, 106, 174]) {
-      traceSurface(depth);
-      context.stroke();
+    context.save();
+    traceGroundShape();
+    context.clip();
+
+    if (diffusePattern) {
+      context.globalAlpha = 0.88;
+      context.fillStyle = diffusePattern;
+      context.fillRect(0, 0, width, height);
     }
+
+    if (roughnessPattern) {
+      context.globalCompositeOperation = "multiply";
+      context.globalAlpha = 0.2;
+      context.fillStyle = roughnessPattern;
+      context.fillRect(0, 0, width, height);
+    }
+
+    const depthShade = context.createLinearGradient(0, height * 0.25, 0, height);
+    depthShade.addColorStop(0, "rgb(30 38 30 / 4%)");
+    depthShade.addColorStop(0.65, "rgb(24 31 27 / 28%)");
+    depthShade.addColorStop(1, "rgb(15 22 19 / 52%)");
+    context.globalCompositeOperation = "multiply";
+    context.globalAlpha = 1;
+    context.fillStyle = depthShade;
+    context.fillRect(0, 0, width, height);
+    context.restore();
 
     context.globalAlpha = 1;
     traceSurface(0);
-    context.strokeStyle = "#93a36c";
-    context.lineWidth = 3;
+    context.strokeStyle = "#9e966e";
+    context.lineWidth = 2;
     context.stroke();
 
     for (const fragment of debris) drawFragment(fragment);
     context.restore();
+  }
+
+  function traceGroundShape() {
+    traceSurface(0);
+    context.lineTo(width, height);
+    context.lineTo(0, height);
+    context.closePath();
   }
 
   function traceSurface(offset) {
@@ -204,4 +239,12 @@ export function setupTerrain(arena) {
     getSurfaceY,
     reset,
   };
+}
+
+function loadTexture(url, onLoad) {
+  const image = new Image();
+  image.decoding = "async";
+  image.addEventListener("load", onLoad);
+  image.src = url;
+  return image;
 }
