@@ -38,11 +38,6 @@ const elements = {
   trajectories: document.querySelector("[data-trajectories]"),
 };
 
-elements.arena.style.setProperty(
-  "--sky-texture",
-  'url("./assets/textures/sky/partly-cloudy.jpg")',
-);
-
 const state = {
   answerLocked: false,
   bankBreachRatio: null,
