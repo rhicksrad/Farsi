@@ -10,7 +10,7 @@ A web-based Persian (Farsi) learning game with top-down word-missile interceptio
 
 Correct answers launch an interceptor, build a score multiplier, and destroy the incoming word. Incoming missiles converge on and permanently excavate the terrain above the word bank; the blasted rock fragments are Matter.js rigid bodies with gravity, rotation, collision, bounce, and settling. The bank is safe while that cover remains. Once repeated impacts open a deep enough crater, the bank becomes exposed and the next missile through ends the run.
 
-The deformable earth uses Poly Haven's CC0 Rock Ground PBR texture pack. Source details are listed in [third-party notices](THIRD_PARTY_NOTICES.md) and in the game's texture credits.
+The deformable earth uses Poly Haven's CC0 Rock Ground PBR texture pack, and the sky uses a web-optimized CC0 Poly Haven panorama. Source details are listed in [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Local development
 

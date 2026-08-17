@@ -11,3 +11,7 @@ Changes made by this project: conversion to a compact chunked JSON schema, case-
 The files under `public/assets/textures/rock-ground/` are the 1K JPG maps from [Rock Ground](https://polyhaven.com/a/rock_ground) by Rob Tuytel, distributed through Poly Haven under the [CC0 1.0 Universal license](https://creativecommons.org/publicdomain/zero/1.0/).
 
 Included maps: diffuse, OpenGL normal, roughness, and displacement. The game uses the diffuse and roughness maps to texture the deformable terrain at runtime.
+
+## Poly Haven sky
+
+`public/assets/textures/sky/partly-cloudy.webp` is a web-optimized derivative of [Kloofendal 38d Partly Cloudy (Pure Sky)](https://polyhaven.com/a/kloofendal_38d_partly_cloudy_puresky) by Greg Zaal and Jarod Guest, distributed through Poly Haven under CC0 1.0 Universal. The original tone-mapped panorama was resized and converted to WebP for browser delivery.

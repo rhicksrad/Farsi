@@ -31,8 +31,14 @@ const elements = {
   trajectories: document.querySelector("[data-trajectories]"),
 };
 
+elements.arena.style.setProperty(
+  "--sky-texture",
+  'url("./assets/textures/sky/partly-cloudy.webp")',
+);
+
 const state = {
   answerLocked: false,
+  bankBreachRatio: null,
   bankStatus: "shielded",
   currentWord: null,
   difficulty: "beginner",
@@ -67,6 +73,7 @@ function startGame() {
   state.answerLocked = false;
   state.currentWord = null;
   state.bankStatus = "shielded";
+  state.bankBreachRatio = null;
   state.score = 0;
   state.streak = 0;
   elements.overlay.hidden = true;
@@ -98,7 +105,9 @@ function spawnWord() {
 function startIncomingFlight(duration) {
   cancelIncoming();
   const width = elements.arena.clientWidth;
-  const endX = width * (0.46 + Math.random() * 0.08);
+  const endX = state.bankStatus === "exposed" && state.bankBreachRatio !== null
+    ? width * state.bankBreachRatio
+    : width * (0.08 + Math.random() * 0.84);
   const direction = Math.random() > 0.5 ? 1 : -1;
   const horizontalOffset = width * (0.2 + Math.random() * 0.28);
   const start = {
@@ -121,7 +130,7 @@ function startIncomingFlight(duration) {
   };
   state.incomingEnd = end;
 
-  addTrajectory(start, control, end, "incoming-trail");
+  const incomingPath = addTrajectory(start, control, end, "incoming-trail");
   positionOnCurve(elements.target, start, control, end, 0);
 
   let frameId;
@@ -135,6 +144,7 @@ function startIncomingFlight(duration) {
     positionOnCurve(elements.target, start, control, end, progress);
 
     if (progress === 1) {
+      incomingPath.remove();
       state.incomingAnimation = null;
       handleImpact();
       return;
@@ -151,6 +161,7 @@ function startIncomingFlight(duration) {
     cancel() {
       canceled = true;
       cancelAnimationFrame(frameId);
+      incomingPath.remove();
     },
   };
 }
@@ -315,17 +326,18 @@ function handleImpact() {
     return;
   }
 
-  terrain.explode(
-    impactX,
-    terrain.getSurfaceY(impactX),
-    Math.min(54, arenaRect.width * 0.065),
+  const impactRadius = Math.max(
+    26,
+    Math.min(76, arenaRect.width * (0.032 + Math.random() * 0.04)),
   );
+  terrain.explode(impactX, terrain.getSurfaceY(impactX), impactRadius);
   state.streak = 0;
   elements.target.classList.add("impact");
 
-  const coverDepth = terrain.getSurfaceY(arenaRect.width * 0.5);
+  const coverDepth = terrain.getSurfaceY(impactX);
   if (coverDepth >= arenaRect.height * BANK_EXPOSURE_RATIO) {
     state.bankStatus = "exposed";
+    state.bankBreachRatio = impactX / arenaRect.width;
     elements.answerPanel.classList.add("exposed");
     showMessage("Ground breached — the next missile can hit the word bank!", "miss");
   } else {
