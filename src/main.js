@@ -40,7 +40,7 @@ const elements = {
 
 elements.arena.style.setProperty(
   "--sky-texture",
-  'url("./assets/textures/sky/partly-cloudy.webp")',
+  'url("./assets/textures/sky/partly-cloudy.jpg")',
 );
 
 const state = {
