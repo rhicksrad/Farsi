@@ -4,9 +4,9 @@ A web-based Persian (Farsi) learning game with top-down word-missile interceptio
 
 ## Game modes
 
-- **Beginner:** phonetic pronunciation, Latin-letter spelling, and Persian script; 4-word bank.
-- **Medium:** Latin-letter spelling and Persian script; 8-word bank.
-- **Hard:** Persian script only; 20-word bank.
+- **Beginner:** phonetic pronunciation, Latin-letter spelling, and Persian script; 4-word bank; essential conversational curriculum.
+- **Medium:** Latin-letter spelling and Persian script; 8-word bank; adds everyday vocabulary.
+- **Hard:** Persian script only; 20-word bank; adds broader high-frequency vocabulary.
 
 Correct answers launch an interceptor, build a score multiplier, and destroy the incoming word. Incoming missiles converge on and permanently excavate the terrain above the word bank; the blasted rock fragments are Matter.js rigid bodies with gravity, rotation, collision, bounce, and settling. The bank is safe while that cover remains. Once repeated impacts open a deep enough crater, the bank becomes exposed and the next missile through ends the run.
 
@@ -24,10 +24,11 @@ Useful commands:
 - `npm run build` creates the production site in `dist/`.
 - `npm run check` validates the generated dictionary and production build.
 - `npm run data:import` regenerates the dictionary assets from the pinned upstream source.
+- `npm run data:curriculum` regenerates the reviewed lesson curriculum from its frequency source.
 
 ## Dictionary
 
-The starter dictionary contains English headwords and Persian translation variants derived from the Apache-2.0 `generic-13` data in EnglishToPersianDictionaries. See [the source assessment](docs/dictionary-sources.md) and [third-party notices](THIRD_PARTY_NOTICES.md) for provenance, licensing, and quality limitations.
+Scored lessons use a 415-word, three-level curriculum selected from a learner frequency dictionary and supplemented with reviewed conversational essentials. It is shuffled without replacement on every play. The much larger Apache-2.0 `generic-13` dataset remains available only as a reference and never supplies scored answers or distractors. See [the source assessment](docs/dictionary-sources.md) and [third-party notices](THIRD_PARTY_NOTICES.md) for provenance and licensing.
 
 ## Deployment
 

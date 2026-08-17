@@ -1,22 +1,22 @@
-const dictionaryBase = `${import.meta.env.BASE_URL}data/dictionary/`;
+const curriculumUrl = `${import.meta.env.BASE_URL}data/curriculum.json`;
 
-let headwordsPromise;
-let pronouncedPromise;
-let headwordDeck = [];
+let curriculumPromise;
+let bankDeck = [];
 let targetDeck = [];
+let activeDifficulty;
 
-export async function resetDictionaryDecks(_difficulty, random = Math.random) {
-  const [headwords, targets] = await Promise.all([
-    loadJson("game-headwords.json", "headwords"),
-    loadJson("game-pronounced.json", "pronounced"),
-  ]);
-  headwordDeck = shuffle(headwords, random);
-  targetDeck = shuffle(targets, random);
-  return { headwords: headwords.length, targets: targetDeck.length };
+export async function resetDictionaryDecks(difficulty, random = browserRandom) {
+  const targets = await loadCurriculum();
+  const maxLevel = curriculumLevel(difficulty);
+  const available = targets.filter((word) => word.level <= maxLevel);
+  activeDifficulty = difficulty;
+  bankDeck = shuffle(available, random);
+  targetDeck = shuffle(available, random);
+  return { targets: targetDeck.length };
 }
 
-export async function createDictionaryRound(difficulty, bankSize, random = Math.random) {
-  if (headwordDeck.length === 0 || targetDeck.length === 0) {
+export async function createDictionaryRound(difficulty, bankSize, random = browserRandom) {
+  if (activeDifficulty !== difficulty || bankDeck.length === 0 || targetDeck.length === 0) {
     await resetDictionaryDecks(difficulty, random);
   }
 
@@ -25,30 +25,44 @@ export async function createDictionaryRound(difficulty, bankSize, random = Math.
   const used = new Set([answer.english]);
 
   while (bank.length < bankSize) {
-    if (headwordDeck.length === 0) {
-      const headwords = await loadJson("game-headwords.json", "headwords");
-      headwordDeck = shuffle(headwords, random);
+    if (bankDeck.length === 0) {
+      const curriculum = await loadCurriculum();
+      const maxLevel = curriculumLevel(difficulty);
+      bankDeck = shuffle(
+        curriculum.filter((word) => word.level <= maxLevel),
+        random,
+      );
     }
-    const english = headwordDeck.pop();
-    if (used.has(english)) continue;
-    used.add(english);
-    bank.push({ english });
+    const candidate = bankDeck.pop();
+    if (used.has(candidate.english)) continue;
+    used.add(candidate.english);
+    bank.push(candidate);
   }
 
   return { answer, bank: shuffle(bank, random) };
 }
 
-function loadJson(file, cacheName) {
-  if (cacheName === "headwords" && headwordsPromise) return headwordsPromise;
-  if (cacheName === "pronounced" && pronouncedPromise) return pronouncedPromise;
-
-  const promise = fetch(`${dictionaryBase}${file}`).then((response) => {
-    if (!response.ok) throw new Error(`${file} returned ${response.status}`);
+function loadCurriculum() {
+  if (curriculumPromise) return curriculumPromise;
+  curriculumPromise = fetch(curriculumUrl).then((response) => {
+    if (!response.ok) throw new Error(`curriculum.json returned ${response.status}`);
     return response.json();
   });
-  if (cacheName === "headwords") headwordsPromise = promise;
-  if (cacheName === "pronounced") pronouncedPromise = promise;
-  return promise;
+  return curriculumPromise;
+}
+
+function curriculumLevel(difficulty) {
+  const levels = { beginner: 1, medium: 2, hard: 3 };
+  const level = levels[difficulty];
+  if (!level) throw new RangeError(`Unknown difficulty: ${difficulty}`);
+  return level;
+}
+
+function browserRandom() {
+  if (!globalThis.crypto?.getRandomValues) return Math.random();
+  const value = new Uint32Array(1);
+  globalThis.crypto.getRandomValues(value);
+  return value[0] / 0x1_0000_0000;
 }
 
 function shuffle(values, random) {

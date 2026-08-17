@@ -1,18 +1,21 @@
 export const DIFFICULTIES = {
   beginner: {
     bankSize: 4,
+    curriculumLevel: 1,
     fallDuration: 12_000,
     showPhonetic: true,
     showLatin: true,
   },
   medium: {
     bankSize: 8,
+    curriculumLevel: 2,
     fallDuration: 10_000,
     showPhonetic: false,
     showLatin: true,
   },
   hard: {
     bankSize: 20,
+    curriculumLevel: 3,
     fallDuration: 8_000,
     showPhonetic: false,
     showLatin: false,
