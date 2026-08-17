@@ -66,7 +66,7 @@ const state = {
 const savedBest = Number.parseInt(localStorage.getItem("wordfall-best") ?? "0", 10);
 elements.best.textContent = Number.isNaN(savedBest) ? "0" : savedBest.toString();
 
-const textSizes = new Set(["small", "medium", "large"]);
+const textSizes = new Set(["small", "medium", "large", "huge", "ancient"]);
 const savedTextSize = localStorage.getItem("wordfall-text-size");
 applyTextSize(textSizes.has(savedTextSize) ? savedTextSize : "medium", false);
 
