@@ -174,8 +174,16 @@ test("portrait terrain leaves a clear sky band on mobile", () => {
   const height = 800;
   const profile = createTerrainProfile(390, height);
 
-  assert.ok(Math.min(...profile) > height * 0.34);
-  assert.ok(Math.max(...profile) < height * 0.55);
+  assert.ok(Math.min(...profile) > height * 0.4);
+  assert.ok(Math.max(...profile) < height * 0.6);
+});
+
+test("landscape terrain keeps the mobile sky visible", () => {
+  const height = 340;
+  const profile = createTerrainProfile(844, height);
+
+  assert.ok(Math.min(...profile) > height * 0.33);
+  assert.ok(Math.max(...profile) < height * 0.52);
 });
 
 test("an explosion permanently carves only its local terrain", () => {
