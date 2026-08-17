@@ -37,6 +37,24 @@ export function groundImpactProfile(width, hitNumber, random = Math.random) {
   };
 }
 
+export function findTerrainContactX(
+  { centerX, centerY, width, height },
+  surfaceYAt,
+  sampleSpacing = 4,
+) {
+  const left = centerX - width / 2;
+  const right = centerX + width / 2;
+  const bottom = centerY + height / 2;
+  const sampleCount = Math.max(1, Math.ceil(width / sampleSpacing));
+
+  for (let index = 0; index <= sampleCount; index += 1) {
+    const x = left + (right - left) * (index / sampleCount);
+    if (bottom >= surfaceYAt(x)) return x;
+  }
+
+  return null;
+}
+
 export function streakMultiplier(streak) {
   return Math.max(1, Math.trunc(streak));
 }

@@ -5,6 +5,7 @@ import {
   BANK_EXPOSURE_RATIO,
   createWordDeck,
   drawWordBankFromDeck,
+  findTerrainContactX,
   groundImpactProfile,
   shortcutLabel,
   streakMultiplier,
@@ -144,6 +145,8 @@ async function spawnWord() {
 function startIncomingFlight(duration) {
   cancelIncoming();
   const width = elements.arena.clientWidth;
+  const targetWidth = elements.target.offsetWidth;
+  const targetHeight = elements.target.offsetHeight;
   const endX = state.bankStatus === "exposed" && state.bankBreachRatio !== null
     ? width * state.bankBreachRatio
     : width * (0.08 + Math.random() * 0.84);
@@ -154,14 +157,14 @@ function startIncomingFlight(duration) {
       width * 0.03,
       Math.min(width * 0.97, endX + direction * horizontalOffset),
     ),
-    y: -elements.target.offsetHeight * 0.55,
+    y: -targetHeight * 0.55,
   };
   const impactY = state.bankStatus === "exposed"
     ? elements.arena.clientHeight * 0.86
     : terrain.getSurfaceY(endX);
   const end = {
     x: endX,
-    y: impactY - elements.target.offsetHeight * 0.44,
+    y: impactY - targetHeight * 0.44,
   };
   const control = {
     x: (start.x + end.x) / 2,
@@ -169,7 +172,6 @@ function startIncomingFlight(duration) {
   };
   state.incomingEnd = end;
 
-  const incomingPath = addTrajectory(start, control, end, "incoming-trail");
   positionOnCurve(elements.target, start, control, end, 0);
 
   let frameId;
@@ -184,12 +186,27 @@ function startIncomingFlight(duration) {
     elapsed += (now - previousFrameAt) * speedMultiplier;
     previousFrameAt = now;
     const progress = Math.min(1, elapsed / duration);
-    positionOnCurve(elements.target, start, control, end, progress);
+    const point = positionOnCurve(elements.target, start, control, end, progress);
+    const terrainContactX = findTerrainContactX(
+      {
+        centerX: point.x,
+        centerY: point.y,
+        width: targetWidth,
+        height: targetHeight,
+      },
+      terrain.getSurfaceY,
+    );
+
+    if (terrainContactX !== null) {
+      state.incomingAnimation = null;
+      state.incomingEnd = { x: terrainContactX, y: terrain.getSurfaceY(terrainContactX) };
+      handleImpact(true);
+      return;
+    }
 
     if (progress === 1) {
-      incomingPath.remove();
       state.incomingAnimation = null;
-      handleImpact();
+      handleImpact(state.bankStatus !== "exposed");
       return;
     }
     frameId = requestAnimationFrame(tick);
@@ -207,7 +224,6 @@ function startIncomingFlight(duration) {
     cancel() {
       canceled = true;
       cancelAnimationFrame(frameId);
-      incomingPath.remove();
     },
   };
 }
@@ -236,6 +252,7 @@ function positionOnCurve(element, start, control, end, progress) {
   element.style.left = `${point.x}px`;
   element.style.top = `${point.y}px`;
   element.style.transform = `translate(-50%, -50%) rotate(${(progress - 0.5) * 3}deg)`;
+  return point;
 }
 
 function animateAlongCurve(element, start, control, end, duration) {
@@ -284,8 +301,12 @@ function renderBank(words) {
     button.title = `Fire with ${shortcutLabel(index)}`;
 
     const number = document.createElement("span");
+    number.className = "shortcut-number";
     number.textContent = (index + 1).toString();
-    button.append(number, document.createTextNode(word.english));
+    const label = document.createElement("span");
+    label.className = "word-label";
+    label.textContent = word.english;
+    button.append(number, label);
     button.addEventListener("click", () => fireAnswer(button, word));
     elements.bank.append(button);
   }
@@ -373,13 +394,13 @@ async function animateShot(isHit) {
   showAirburst(end, isHit);
 }
 
-function handleImpact() {
+function handleImpact(hitGround) {
   if (state.answerLocked) return;
   state.answerLocked = true;
   const arenaRect = elements.arena.getBoundingClientRect();
   const impactX = state.incomingEnd?.x ?? arenaRect.width * 0.5;
 
-  if (state.bankStatus === "exposed") {
+  if (state.bankStatus === "exposed" && !hitGround) {
     state.bankStatus = "hit";
     elements.answerPanel.classList.remove("exposed");
     elements.answerPanel.classList.add("hit");

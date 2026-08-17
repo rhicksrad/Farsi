@@ -9,6 +9,7 @@ import {
   buildWordBank,
   createWordDeck,
   drawWordBankFromDeck,
+  findTerrainContactX,
   groundImpactProfile,
   pickNextWord,
   shortcutLabel,
@@ -66,6 +67,17 @@ test("successive ground impacts grow larger and launch debris harder", () => {
   assert.ok(third.radius < sixth.radius);
   assert.ok(first.power < third.power);
   assert.ok(third.power < sixth.power);
+});
+
+test("a falling word collides across its full rendered width", () => {
+  const surfaceYAt = (x) => (x < 80 ? 70 : 140);
+  const word = { centerX: 100, centerY: 65, width: 60, height: 20 };
+
+  assert.equal(findTerrainContactX(word, surfaceYAt), 70);
+  assert.equal(
+    findTerrainContactX({ ...word, centerX: 120, centerY: 55 }, surfaceYAt),
+    null,
+  );
 });
 
 test("difficulty modes progressively remove clues", () => {
@@ -156,6 +168,14 @@ test("terrain starts as one broad earth-filled battlefield", () => {
   assert.ok(Math.min(...profile) < 200);
   assert.ok(Math.max(...profile) < 275);
   assert.ok(Math.max(...profile) - Math.min(...profile) > 60);
+});
+
+test("portrait terrain leaves a clear sky band on mobile", () => {
+  const height = 800;
+  const profile = createTerrainProfile(390, height);
+
+  assert.ok(Math.min(...profile) > height * 0.34);
+  assert.ok(Math.max(...profile) < height * 0.55);
 });
 
 test("an explosion permanently carves only its local terrain", () => {

@@ -13,18 +13,21 @@
 body {
   min-width: 320px;
   height: 100vh;
+  height: 100dvh;
   margin: 0;
   overflow: hidden;
   background: #f1eadb;
 }
 
 button, select { font: inherit; }
+button, select { touch-action: manipulation; }
 button { -webkit-tap-highlight-color: transparent; }
 
 .app-shell {
   display: flex;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   flex-direction: column;
 }
 
@@ -220,6 +223,7 @@ h2 { font-size: 1.15rem; }
   background:
     linear-gradient(180deg, rgb(79 127 155 / 12%), rgb(211 220 205 / 16%)),
     var(--sky-texture) center 44% / cover no-repeat;
+  background-color: #7894a5;
   isolation: isolate;
 }
 
@@ -316,12 +320,6 @@ h2 { font-size: 1.15rem; }
 
 @keyframes fired-trail-fade {
   to { opacity: 0; }
-}
-
-.trajectory.incoming-trail {
-  stroke: rgb(185 75 48 / 54%);
-  stroke-width: 1.1;
-  stroke-dasharray: none;
 }
 
 .terrain-canvas { z-index: 2; }
@@ -475,7 +473,7 @@ h2 { font-size: 1.15rem; }
 .word-shell:disabled { cursor: default; opacity: 0.58; }
 .word-shell.spent { border-color: rgb(226 174 126 / 28%); color: rgb(255 249 233 / 42%); }
 
-.word-shell span {
+.shortcut-number {
   display: grid;
   width: 1rem;
   height: 1rem;
@@ -485,6 +483,13 @@ h2 { font-size: 1.15rem; }
   color: #7b5f3e;
   background: #e9dcc2;
   font-size: 0.56rem;
+}
+
+.word-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .word-shell.miss { border-color: #b8492f; animation: shake 260ms ease; }
@@ -522,7 +527,11 @@ h2 { font-size: 1.15rem; }
 }
 
 @media (max-width: 620px) {
-  .topbar { min-height: 3rem; padding: 0.4rem 0.65rem; }
+  .topbar {
+    min-height: 2.85rem;
+    padding: calc(0.32rem + env(safe-area-inset-top)) 0.5rem 0.32rem;
+  }
+  .brand strong { font-size: 0.96rem; }
   .topbar-actions { gap: 0.55rem; }
   .top-stats { gap: 0.4rem; }
   .top-stat { gap: 0.18rem; }
@@ -532,13 +541,90 @@ h2 { font-size: 1.15rem; }
   .streak-stat em { font-size: 0.62rem; }
   .difficulty-control { align-items: flex-end; flex-direction: column; gap: 0.25rem; }
   .difficulty-control > span, .brand small { display: none; }
-  .difficulty-control select { max-width: 8.5rem; padding-inline: 0.55rem 1.6rem; }
-  .answer-panel { padding-top: 2.5rem; }
-  .word-shell { width: calc(50% - 0.2rem); }
+  .difficulty-control select {
+    max-width: 7.7rem;
+    padding: 0.48rem 1.45rem 0.48rem 0.52rem;
+    border-radius: 0.55rem;
+    font-size: 0.72rem;
+  }
+  .answer-panel {
+    padding: 1.65rem 0.45rem calc(0.48rem + env(safe-area-inset-bottom));
+    gap: 0.3rem;
+  }
+  .answer-panel .bank-heading h2 { font-size: 0.76rem; }
+  .bank-status, .bank-count { font-size: 0.5rem; }
+  .word-bank {
+    display: grid;
+    width: 100%;
+    gap: 0.22rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .word-shell {
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.25rem 0.3rem;
+    gap: 0.22rem;
+    font-size: 0.6rem;
+  }
+  .shortcut-number {
+    width: 0.9rem;
+    height: 0.9rem;
+    font-size: 0.5rem;
+  }
+  .impact-message {
+    top: 0.55rem;
+    max-width: calc(100% - 1rem);
+    min-height: 1.7rem;
+    padding: 0.4rem 0.65rem;
+    overflow: hidden;
+    font-size: 0.68rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 440px) {
   .brand span, .top-stat small { display: none; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .topbar {
+    min-height: 2.65rem;
+    padding: calc(0.25rem + env(safe-area-inset-top)) 0.65rem 0.25rem;
+  }
+  .brand span, .top-stat small, .difficulty-control > span { display: none; }
+  .topbar-actions, .top-stats { gap: 0.5rem; }
+  .streak-stat { padding-left: 0.5rem; }
+  .difficulty-control select {
+    max-width: 7.7rem;
+    padding: 0.42rem 1.45rem 0.42rem 0.55rem;
+    font-size: 0.72rem;
+  }
+  .answer-panel {
+    padding: 1.35rem max(0.45rem, env(safe-area-inset-right)) calc(0.38rem + env(safe-area-inset-bottom)) max(0.45rem, env(safe-area-inset-left));
+    gap: 0.24rem;
+  }
+  .answer-panel .bank-heading h2 { font-size: 0.72rem; }
+  .bank-status, .bank-count { font-size: 0.48rem; }
+  .word-bank {
+    display: grid;
+    width: 100%;
+    gap: 0.18rem;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+  .word-shell {
+    width: 100%;
+    min-height: 1.75rem;
+    padding: 0.2rem 0.26rem;
+    gap: 0.2rem;
+    font-size: 0.57rem;
+  }
+  .shortcut-number {
+    width: 0.82rem;
+    height: 0.82rem;
+    font-size: 0.46rem;
+  }
+  .impact-message { top: 0.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

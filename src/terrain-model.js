@@ -15,6 +15,8 @@ const RIDGE_POINTS = [
 export function createTerrainProfile(width, height) {
   const safeWidth = Math.max(1, Math.round(width));
   const profile = new Float32Array(safeWidth + 1);
+  const aspectRatio = safeWidth / Math.max(1, height);
+  const portraitSkyOffset = Math.max(0, Math.min(0.09, (0.9 - aspectRatio) * 0.22));
   let pointIndex = 0;
 
   for (let x = 0; x <= safeWidth; x += 1) {
@@ -33,7 +35,7 @@ export function createTerrainProfile(width, height) {
     const fineRock =
       Math.sin(x * 0.12) * height * 0.0028 +
       Math.sin(x * 0.037 + 1.7) * height * 0.004;
-    profile[x] = ridgeY * height + fineRock;
+    profile[x] = (ridgeY + portraitSkyOffset) * height + fineRock;
   }
 
   return profile;
