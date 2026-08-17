@@ -16,6 +16,7 @@ export function setupTerrain(arena) {
   let profile = createTerrainProfile(width, height);
   let terrainBodies = [];
   let debris = [];
+  let dust = [];
   let diffusePattern = null;
   let roughnessPattern = null;
   let frameId = 0;
@@ -52,6 +53,7 @@ export function setupTerrain(arena) {
   function reset() {
     for (const fragment of debris) Composite.remove(engine.world, fragment.body);
     debris = [];
+    dust = [];
     profile = createTerrainProfile(width, height);
     rebuildCollision();
   }
@@ -73,6 +75,7 @@ export function setupTerrain(arena) {
 
     rebuildCollision();
     spawnDebris(x, Math.min(y, surfaceY), radius);
+    spawnDust(x, Math.min(y, surfaceY), radius);
     return true;
   }
 
@@ -98,14 +101,14 @@ export function setupTerrain(arena) {
   }
 
   function spawnDebris(x, y, radius) {
-    const fragmentCount = Math.min(24, Math.max(12, Math.round(radius * 0.42)));
+    const fragmentCount = Math.min(20, Math.max(10, Math.round(radius * 0.32)));
     const now = performance.now();
 
     for (let index = 0; index < fragmentCount; index += 1) {
       const angle = Math.PI + Math.random() * Math.PI;
       const distance = Math.random() * radius * 0.42;
-      const size = 2.8 + Math.random() * Math.min(7, radius * 0.11);
-      const sides = 3 + Math.floor(Math.random() * 3);
+      const size = 2.2 + Math.random() * Math.min(5.5, radius * 0.085);
+      const sides = 6 + Math.floor(Math.random() * 3);
       const body = Bodies.polygon(
         x + Math.cos(angle) * distance,
         y - 2 - Math.random() * radius * 0.24,
@@ -119,8 +122,10 @@ export function setupTerrain(arena) {
           label: "debris",
         },
       );
-      const horizontalVelocity = (Math.random() - 0.5) * (radius / 8.5);
-      const upwardVelocity = -(2.7 + Math.random() * radius / 8.5);
+      Body.scale(body, 0.72 + Math.random() * 0.65, 0.55 + Math.random() * 0.5);
+      Body.rotate(body, Math.random() * Math.PI);
+      const horizontalVelocity = (Math.random() - 0.5) * (radius / 9.5);
+      const upwardVelocity = -(2.2 + Math.random() * radius / 10.5);
       Body.setVelocity(body, { x: horizontalVelocity, y: upwardVelocity });
       Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.34);
       const fragment = {
@@ -130,6 +135,25 @@ export function setupTerrain(arena) {
       };
       debris.push(fragment);
       Composite.add(engine.world, body);
+    }
+  }
+
+  function spawnDust(x, y, radius) {
+    const now = performance.now();
+    const particleCount = Math.min(30, Math.max(16, Math.round(radius * 0.48)));
+
+    for (let index = 0; index < particleCount; index += 1) {
+      const spread = (Math.random() - 0.5) * radius * 0.9;
+      dust.push({
+        bornAt: now,
+        color: Math.random() > 0.45 ? "111 102 79" : "166 151 112",
+        life: 650 + Math.random() * 620,
+        radius: 1.5 + Math.random() * Math.max(2.5, radius * 0.075),
+        vx: spread * 0.018,
+        vy: -(0.45 + Math.random() * 1.45),
+        x: x + spread * 0.24,
+        y: y - 2 - Math.random() * radius * 0.16,
+      });
     }
   }
 
@@ -170,10 +194,16 @@ export function setupTerrain(arena) {
 
     context.globalAlpha = 1;
     traceSurface(0);
-    context.strokeStyle = "#9e966e";
-    context.lineWidth = 2;
+    context.strokeStyle = "rgb(27 31 25 / 62%)";
+    context.lineWidth = 5;
     context.stroke();
 
+    traceSurface(0);
+    context.strokeStyle = "#9e966e";
+    context.lineWidth = 1.35;
+    context.stroke();
+
+    for (const particle of dust) drawDust(particle, performance.now());
     for (const fragment of debris) drawFragment(fragment);
     context.restore();
   }
@@ -195,23 +225,89 @@ export function setupTerrain(arena) {
 
   function drawFragment(fragment) {
     const { body } = fragment;
+    context.save();
     context.beginPath();
     context.moveTo(body.vertices[0].x, body.vertices[0].y);
     for (let index = 1; index < body.vertices.length; index += 1) {
       context.lineTo(body.vertices[index].x, body.vertices[index].y);
     }
     context.closePath();
+    context.shadowColor = "rgb(12 16 12 / 42%)";
+    context.shadowBlur = 2.5;
+    context.shadowOffsetY = 1.5;
     context.fillStyle = fragment.color;
     context.fill();
-    context.strokeStyle = "rgb(222 201 143 / 28%)";
-    context.lineWidth = 0.75;
+    context.shadowColor = "transparent";
+    context.clip();
+
+    if (diffusePattern) {
+      context.globalAlpha = 0.92;
+      context.fillStyle = diffusePattern;
+      context.fillRect(
+        body.bounds.min.x - 2,
+        body.bounds.min.y - 2,
+        body.bounds.max.x - body.bounds.min.x + 4,
+        body.bounds.max.y - body.bounds.min.y + 4,
+      );
+    }
+
+    const shade = context.createLinearGradient(
+      0,
+      body.bounds.min.y,
+      0,
+      body.bounds.max.y,
+    );
+    shade.addColorStop(0, "rgb(231 215 170 / 18%)");
+    shade.addColorStop(1, "rgb(17 22 18 / 38%)");
+    context.globalAlpha = 1;
+    context.fillStyle = shade;
+    context.fillRect(
+      body.bounds.min.x - 1,
+      body.bounds.min.y - 1,
+      body.bounds.max.x - body.bounds.min.x + 2,
+      body.bounds.max.y - body.bounds.min.y + 2,
+    );
+    context.restore();
+
+    context.beginPath();
+    context.moveTo(body.vertices[0].x, body.vertices[0].y);
+    for (let index = 1; index < body.vertices.length; index += 1) {
+      context.lineTo(body.vertices[index].x, body.vertices[index].y);
+    }
+    context.closePath();
+    context.strokeStyle = "rgb(27 32 25 / 58%)";
+    context.lineWidth = 0.65;
     context.stroke();
+  }
+
+  function drawDust(particle, now) {
+    const progress = Math.min(1, (now - particle.bornAt) / particle.life);
+    const alpha = Math.sin(progress * Math.PI) * 0.34;
+    context.beginPath();
+    context.arc(
+      particle.x,
+      particle.y,
+      particle.radius * (0.7 + progress * 1.45),
+      0,
+      Math.PI * 2,
+    );
+    context.fillStyle = `rgb(${particle.color} / ${alpha})`;
+    context.fill();
   }
 
   function tick(now) {
     const delta = Math.min(32, now - previousTime);
     previousTime = now;
     Engine.update(engine, delta);
+
+    for (const particle of dust) {
+      const frameScale = delta / 16.67;
+      particle.x += particle.vx * frameScale;
+      particle.y += particle.vy * frameScale;
+      particle.vy += 0.035 * frameScale;
+      particle.vx *= 0.992;
+    }
+    dust = dust.filter((particle) => now - particle.bornAt < particle.life);
 
     debris = debris.filter((fragment) => {
       const expired = now - fragment.bornAt > 11000;
