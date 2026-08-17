@@ -1,6 +1,14 @@
 # Farsi learning game
 
-A web-based game for learning Persian (Farsi), currently at the project-foundation stage.
+A web-based Persian (Farsi) learning game inspired by classic artillery defense games. Match falling Persian words with English words from your ammunition bank before they reach the city.
+
+## Game modes
+
+- **Beginner:** phonetic pronunciation, English meaning, and Persian script; 4-word bank.
+- **Medium:** English meaning and Persian script; 8-word bank.
+- **Hard:** Persian script only; 20-word bank.
+
+Correct answers launch a shot, build a score multiplier, and destroy the incoming word. Wrong answers cost points, and words that reach the ground cost one of three city lives.
 
 ## Local development
 
