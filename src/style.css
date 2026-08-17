@@ -244,7 +244,7 @@ h2 { font-size: 1.15rem; }
 
 .sky-layer {
   position: absolute;
-  z-index: 0;
+  z-index: -2;
   inset: 0;
   display: block;
   width: 100%;
@@ -257,7 +257,7 @@ h2 { font-size: 1.15rem; }
 
 .arena::before {
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   inset: 0;
   background: linear-gradient(180deg, rgb(79 127 155 / 12%), rgb(211 220 205 / 16%));
   content: "";
@@ -266,7 +266,7 @@ h2 { font-size: 1.15rem; }
 
 .incoming-word {
   position: absolute;
-  z-index: 5;
+  z-index: 20;
   top: 0;
   left: 50%;
   display: flex;
@@ -277,7 +277,10 @@ h2 { font-size: 1.15rem; }
   border: 0;
   color: #fff9e9;
   background: transparent;
-  filter: drop-shadow(0 1px 1px rgb(14 23 25 / 78%));
+  filter:
+    drop-shadow(0 1px 1px rgb(7 18 19 / 95%))
+    drop-shadow(0 0 0.28rem rgb(8 29 31 / 88%));
+  text-shadow: 0 1px 0 rgb(6 18 19 / 92%);
   transform: translate(-50%, -50%);
   will-change: transform;
 }
@@ -506,7 +509,13 @@ h2 { font-size: 1.15rem; }
   transition: 130ms ease;
 }
 
-.word-shell:hover:not(:disabled) { border-color: #e9b075; background: rgb(40 43 31 / 80%); transform: translateY(-1px); }
+@media (hover: hover) and (pointer: fine) {
+  .word-shell:hover:not(:disabled) {
+    border-color: #e9b075;
+    background: rgb(40 43 31 / 80%);
+    transform: translateY(-1px);
+  }
+}
 
 .word-shell:focus-visible, .primary-button:focus-visible, select:focus-visible {
   outline: 3px solid rgb(197 95 54 / 32%);

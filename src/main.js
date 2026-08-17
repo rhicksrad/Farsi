@@ -168,7 +168,7 @@ function startIncomingFlight(duration) {
       width * 0.03,
       Math.min(width * 0.97, endX + direction * horizontalOffset),
     ),
-    y: -targetHeight * 0.55,
+    y: targetHeight * 0.7,
   };
   const impactY = state.bankStatus === "exposed"
     ? elements.arena.clientHeight * 0.86
@@ -343,6 +343,7 @@ function handleWordShortcut(event) {
 async function fireAnswer(button, word) {
   if (state.answerLocked || button.disabled) return;
 
+  button.blur();
   button.disabled = true;
   button.classList.add("spent");
 
