@@ -627,6 +627,12 @@ h2 { font-size: 1.15rem; }
   .impact-message { top: 0.4rem; }
 }
 
+@supports (height: 100svh) {
+  @media (max-width: 900px), (max-height: 500px) {
+    body, .app-shell { height: 100svh; }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
