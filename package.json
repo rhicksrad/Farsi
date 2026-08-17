@@ -1,0 +1,18 @@
+{
+  "name": "farsi-learning-game",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "data:import": "node scripts/import-dictionary.mjs",
+    "data:check": "node scripts/check-dictionary.mjs",
+    "check": "npm run data:check && npm run build"
+  },
+  "devDependencies": {
+    "vite": "^7.1.2"
+  }
+}
+
