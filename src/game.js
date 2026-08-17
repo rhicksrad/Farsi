@@ -21,6 +21,57 @@ export const DIFFICULTIES = {
 
 export const BANK_EXPOSURE_RATIO = 0.78;
 
+export function streakMultiplier(streak) {
+  return Math.max(1, Math.trunc(streak));
+}
+
+export function wordNumberFromShortcut(code, controlKey = false) {
+  const match = /^(?:Digit|Numpad)(\d)$/.exec(code);
+  if (!match) return null;
+  const digit = Number(match[1]);
+  if (controlKey) return digit === 0 ? 20 : digit + 10;
+  return digit === 0 ? 10 : digit;
+}
+
+export function shortcutLabel(index) {
+  const number = index + 1;
+  if (number < 10) return number.toString();
+  if (number === 10) return "0";
+  return `Control+${number === 20 ? 0 : number - 10}`;
+}
+
+export function createWordDeck(words, random = Math.random) {
+  return shuffle(words, random);
+}
+
+export function drawWordBankFromDeck(deck, words, answer, size, random = Math.random) {
+  if (size > words.length) {
+    throw new RangeError(`Cannot build a ${size}-word bank from ${words.length} words.`);
+  }
+
+  const choices = [answer];
+  const used = new Set([answer.english]);
+  const deferred = [];
+
+  while (choices.length < size) {
+    if (deck.length === 0) {
+      deck.push(...createWordDeck(words, random));
+    }
+
+    const candidate = deck.pop();
+    if (used.has(candidate.english)) {
+      deferred.push(candidate);
+      continue;
+    }
+
+    used.add(candidate.english);
+    choices.push(candidate);
+  }
+
+  deck.unshift(...deferred);
+  return shuffle(choices, random);
+}
+
 export function buildWordBank(words, answer, size, random = Math.random) {
   if (size > words.length) {
     throw new RangeError(`Cannot build a ${size}-word bank from ${words.length} words.`);

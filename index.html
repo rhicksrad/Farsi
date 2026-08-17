@@ -7,23 +7,38 @@
       name="description"
       content="Learn Farsi by intercepting Persian word-shells across a destructible artillery battlefield."
     />
-    <title>Wordfall — Learn Farsi</title>
+    <title>واژه‌باران — Learn Farsi</title>
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <a class="brand" href="./" aria-label="Wordfall home">
-          <strong>Wordfall</strong>
+        <a class="brand" href="./" aria-label="واژه‌باران home">
+          <strong lang="fa" dir="rtl">واژه‌باران</strong>
+          <span>Vâzheh Bârân</span>
         </a>
 
-        <label class="difficulty-control">
-          <span>Difficulty</span>
-          <select data-difficulty>
-            <option value="beginner">Beginner · 4 words</option>
-            <option value="medium">Medium · 8 words</option>
-            <option value="hard">Hard · 20 words</option>
-          </select>
-        </label>
+        <div class="topbar-actions">
+          <div class="top-stats" aria-label="Current score and streak">
+            <span class="top-stat">
+              <small>Score</small>
+              <strong data-score>0</strong>
+            </span>
+            <span class="top-stat streak-stat">
+              <small>Streak</small>
+              <strong data-streak>0</strong>
+              <em data-multiplier>×1</em>
+            </span>
+          </div>
+
+          <label class="difficulty-control">
+            <span>Difficulty</span>
+            <select data-difficulty>
+              <option value="beginner">Beginner · 4 words</option>
+              <option value="medium">Medium · 8 words</option>
+              <option value="hard">Hard · 20 words</option>
+            </select>
+          </label>
+        </div>
       </header>
 
       <main class="game-layout">
@@ -33,7 +48,6 @@
             <svg class="trajectory-layer" data-trajectories aria-hidden="true"></svg>
 
             <article class="incoming-word" data-target aria-live="polite">
-              <span class="target-ring" aria-hidden="true"></span>
               <span class="word-phonetic" data-phonetic></span>
               <span class="word-latin" data-latin></span>
               <strong class="word-persian" data-persian lang="fa" dir="rtl"></strong>
@@ -63,8 +77,6 @@
             </aside>
 
             <div class="game-data" hidden>
-              <span data-score>0</span>
-              <span data-streak>0</span>
               <span data-best>0</span>
               <span data-instructions></span>
             </div>

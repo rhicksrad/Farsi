@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "node --test",
     "data:import": "node scripts/import-dictionary.mjs",
+    "data:game": "node scripts/build-game-dictionary.mjs",
     "data:check": "node scripts/check-dictionary.mjs",
     "check": "npm test && npm run data:check && npm run build"
   },

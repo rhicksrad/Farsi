@@ -3,9 +3,13 @@ import { WORDS } from "./data/words.js";
 import {
   DIFFICULTIES,
   BANK_EXPOSURE_RATIO,
-  buildWordBank,
-  pickNextWord,
+  createWordDeck,
+  drawWordBankFromDeck,
+  shortcutLabel,
+  streakMultiplier,
+  wordNumberFromShortcut,
 } from "./game.js";
+import { createDictionaryRound, resetDictionaryDecks } from "./dictionary.js";
 import { setupTerrain } from "./terrain.js";
 
 const elements = {
@@ -21,6 +25,7 @@ const elements = {
   latin: document.querySelector("[data-latin]"),
   lives: document.querySelector("[data-lives]"),
   message: document.querySelector("[data-message]"),
+  multiplier: document.querySelector("[data-multiplier]"),
   overlay: document.querySelector("[data-overlay]"),
   persian: document.querySelector("[data-persian]"),
   phonetic: document.querySelector("[data-phonetic]"),
@@ -39,6 +44,7 @@ elements.arena.style.setProperty(
 const state = {
   answerLocked: false,
   bankBreachRatio: null,
+  bankDeck: [],
   bankStatus: "shielded",
   currentWord: null,
   difficulty: "beginner",
@@ -48,6 +54,7 @@ const state = {
   nextRoundTimer: null,
   score: 0,
   streak: 0,
+  wordDeck: [],
 };
 
 const savedBest = Number.parseInt(localStorage.getItem("wordfall-best") ?? "0", 10);
@@ -55,49 +62,78 @@ elements.best.textContent = Number.isNaN(savedBest) ? "0" : savedBest.toString()
 
 elements.difficulty.addEventListener("change", () => {
   state.difficulty = elements.difficulty.value;
-  startGame();
+  void startGame();
 });
-elements.restart.addEventListener("click", startGame);
+elements.restart.addEventListener("click", () => void startGame());
+document.addEventListener("keydown", handleWordShortcut, true);
 
 const terrain = setupTerrain(elements.arena);
-startGame();
-showDictionaryStatus();
+void startGame();
+void showDictionaryStatus();
 
-function startGame() {
+async function startGame() {
   state.gameId += 1;
+  const gameId = state.gameId;
   clearTimeout(state.nextRoundTimer);
   state.nextRoundTimer = null;
   cancelIncoming();
   elements.trajectories.replaceChildren();
   terrain.reset();
-  state.answerLocked = false;
+  state.answerLocked = true;
   state.currentWord = null;
   state.bankStatus = "shielded";
   state.bankBreachRatio = null;
   state.score = 0;
   state.streak = 0;
+  state.wordDeck = createWordDeck(WORDS);
+  state.bankDeck = createWordDeck(WORDS);
   elements.overlay.hidden = true;
   elements.answerPanel.classList.remove("exposed", "hit");
-  elements.message.textContent = "";
+  elements.target.className = "incoming-word";
+  elements.target.style.opacity = "0";
+  elements.message.textContent = "Loading dictionary…";
+  renderBank([]);
   updateScoreboard();
   updateDifficultyCopy();
-  spawnWord();
+  try {
+    await resetDictionaryDecks(state.difficulty);
+  } catch (error) {
+    console.error(error);
+  }
+  if (gameId !== state.gameId) return;
+  await spawnWord();
 }
 
-function spawnWord() {
-  state.answerLocked = false;
-  state.currentWord = pickNextWord(WORDS, state.currentWord);
+async function spawnWord() {
+  const gameId = state.gameId;
+  state.answerLocked = true;
   const settings = DIFFICULTIES[state.difficulty];
-  const bank = buildWordBank(WORDS, state.currentWord, settings.bankSize);
+  let round;
+  try {
+    round = await createDictionaryRound(state.difficulty, settings.bankSize);
+  } catch (error) {
+    console.error(error);
+    if (state.wordDeck.length === 0) state.wordDeck = createWordDeck(WORDS);
+    const answer = state.wordDeck.pop();
+    round = {
+      answer,
+      bank: drawWordBankFromDeck(state.bankDeck, WORDS, answer, settings.bankSize),
+    };
+  }
+  if (gameId !== state.gameId) return;
+
+  state.currentWord = round.answer;
+  state.answerLocked = false;
 
   elements.target.className = "incoming-word";
+  elements.target.style.opacity = "";
   elements.phonetic.textContent = state.currentWord.phonetic;
   elements.latin.textContent = state.currentWord.latin;
   elements.persian.textContent = state.currentWord.persian;
   elements.phonetic.hidden = !settings.showPhonetic;
   elements.latin.hidden = !settings.showLatin;
   elements.message.textContent = "";
-  renderBank(bank);
+  renderBank(round.bank);
 
   startIncomingFlight(settings.fallDuration);
 }
@@ -136,11 +172,15 @@ function startIncomingFlight(duration) {
   let frameId;
   let canceled = false;
   let paused = false;
-  const startedAt = performance.now();
+  let previousFrameAt = performance.now();
+  let elapsed = 0;
+  let speedMultiplier = 1;
 
   const tick = (now) => {
     if (canceled || paused) return;
-    const progress = Math.min(1, (now - startedAt) / duration);
+    elapsed += (now - previousFrameAt) * speedMultiplier;
+    previousFrameAt = now;
+    const progress = Math.min(1, elapsed / duration);
     positionOnCurve(elements.target, start, control, end, progress);
 
     if (progress === 1) {
@@ -157,6 +197,9 @@ function startIncomingFlight(duration) {
     pause() {
       paused = true;
       cancelAnimationFrame(frameId);
+    },
+    accelerate(multiplier = 1.8) {
+      speedMultiplier = Math.max(speedMultiplier, multiplier);
     },
     cancel() {
       canceled = true;
@@ -178,6 +221,11 @@ function addTrajectory(start, control, end, className) {
   const paths = elements.trajectories.querySelectorAll("path");
   if (paths.length > 14) paths[0].remove();
   return path;
+}
+
+function fadeTrajectory(path) {
+  path.classList.add("fading");
+  path.addEventListener("animationend", () => path.remove(), { once: true });
 }
 
 function positionOnCurve(element, start, control, end, progress) {
@@ -229,6 +277,8 @@ function renderBank(words) {
     button.type = "button";
     button.className = "word-shell";
     button.dataset.answer = word.english;
+    button.setAttribute("aria-keyshortcuts", shortcutLabel(index));
+    button.title = `Fire with ${shortcutLabel(index)}`;
 
     const number = document.createElement("span");
     number.textContent = (index + 1).toString();
@@ -236,6 +286,18 @@ function renderBank(words) {
     button.addEventListener("click", () => fireAnswer(button, word));
     elements.bank.append(button);
   }
+}
+
+function handleWordShortcut(event) {
+  if (event.repeat || event.altKey || event.metaKey || event.shiftKey) return;
+
+  const number = wordNumberFromShortcut(event.code, event.ctrlKey);
+  if (number === null) return;
+  const button = elements.bank.querySelectorAll("button")[number - 1];
+  if (!button || button.disabled || !elements.overlay.hidden) return;
+
+  event.preventDefault();
+  button.click();
 }
 
 async function fireAnswer(button, word) {
@@ -247,11 +309,13 @@ async function fireAnswer(button, word) {
   if (word.english !== state.currentWord.english) {
     state.streak = 0;
     state.score = Math.max(0, state.score - 15);
+    setBankDisabled(true);
+    state.incomingAnimation?.accelerate();
     button.classList.remove("miss");
     void button.offsetWidth;
     button.classList.add("miss");
     void animateShot(false);
-    showMessage("Miss! Try another shell.", "miss");
+    showMissMessage();
     updateScoreboard();
     return;
   }
@@ -265,9 +329,9 @@ async function fireAnswer(button, word) {
 
   state.incomingAnimation?.cancel();
   state.streak += 1;
-  state.score += 100 + Math.max(0, state.streak - 1) * 20;
+  state.score += 100 * streakMultiplier(state.streak);
   elements.target.classList.add("destroyed");
-  showMessage(`Direct hit — ${state.currentWord.phonetic}!`, "hit");
+  showMessage("Hit!", "hit");
   updateScoreboard();
   scheduleNextRound(650);
 }
@@ -295,13 +359,14 @@ async function animateShot(isHit) {
     y: (start.y + end.y) / 2,
   };
 
-  addTrajectory(start, control, end, isHit ? "player-trail" : "miss-trail");
+  const shotPath = addTrajectory(start, control, end, isHit ? "player-trail" : "miss-trail");
 
   const shot = document.createElement("span");
   shot.className = "shot";
   shot.setAttribute("aria-hidden", "true");
   elements.arena.append(shot);
   await animateAlongCurve(shot, start, control, end, isHit ? 430 : 520);
+  fadeTrajectory(shotPath);
   showAirburst(end, isHit);
 }
 
@@ -317,10 +382,7 @@ function handleImpact() {
     elements.answerPanel.classList.add("hit");
     showAirburst({ x: impactX, y: arenaRect.height * 0.86 }, false);
     elements.target.classList.add("impact");
-    showMessage(
-      `Word bank hit! ${state.currentWord.persian} means “${state.currentWord.english}.”`,
-      "miss",
-    );
+    showMissMessage();
     updateScoreboard();
     state.nextRoundTimer = setTimeout(endGame, 750);
     return;
@@ -339,13 +401,8 @@ function handleImpact() {
     state.bankStatus = "exposed";
     state.bankBreachRatio = impactX / arenaRect.width;
     elements.answerPanel.classList.add("exposed");
-    showMessage("Ground breached — the next missile can hit the word bank!", "miss");
-  } else {
-    showMessage(
-      `Ground hit — ${state.currentWord.persian} means “${state.currentWord.english}.”`,
-      "miss",
-    );
   }
+  showMissMessage();
   updateScoreboard();
   scheduleNextRound(950);
 }
@@ -364,7 +421,7 @@ function scheduleNextRound(delay) {
   clearTimeout(state.nextRoundTimer);
   state.nextRoundTimer = setTimeout(() => {
     state.nextRoundTimer = null;
-    spawnWord();
+    void spawnWord();
   }, delay);
 }
 
@@ -385,6 +442,7 @@ function cancelIncoming() {
 function updateScoreboard() {
   elements.score.textContent = state.score.toLocaleString();
   elements.streak.textContent = state.streak.toString();
+  elements.multiplier.textContent = `×${streakMultiplier(state.streak)}`;
   elements.lives.textContent = state.bankStatus.toUpperCase();
   elements.lives.dataset.status = state.bankStatus;
   elements.lives.setAttribute(
@@ -421,12 +479,19 @@ function showMessage(message, result) {
   elements.message.dataset.result = result;
 }
 
+function showMissMessage() {
+  showMessage(
+    `Miss — ${state.currentWord.persian} means “${state.currentWord.english}.”`,
+    "miss",
+  );
+}
+
 async function showDictionaryStatus() {
   try {
     const response = await fetch("./data/dictionary/manifest.json");
     if (!response.ok) throw new Error(`Dictionary manifest returned ${response.status}`);
     const manifest = await response.json();
-    elements.dictionaryStatus.textContent = `${manifest.uniqueEnglishHeadwords.toLocaleString()}-word reference dictionary connected.`;
+    elements.dictionaryStatus.textContent = `${manifest.uniqueEnglishHeadwords.toLocaleString()}-word reference dictionary connected; reviewed lesson targets active.`;
   } catch (error) {
     console.error(error);
     elements.dictionaryStatus.textContent = `${WORDS.length} reviewed lesson words loaded.`;
