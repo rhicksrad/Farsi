@@ -1,0 +1,4152 @@
+[
+  {
+    "english": "hello",
+    "persian": "سلام",
+    "phonetic": "salâm",
+    "latin": "salaam",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "goodbye",
+    "persian": "خداحافظ",
+    "phonetic": "khodâhâfez",
+    "latin": "khodahafez",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "yes",
+    "persian": "بله",
+    "phonetic": "bale",
+    "latin": "bale",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "no",
+    "persian": "نه",
+    "phonetic": "na",
+    "latin": "na",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "please",
+    "persian": "لطفا",
+    "phonetic": "lotfan",
+    "latin": "lotfan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "thanks",
+    "persian": "ممنون",
+    "phonetic": "mamnun",
+    "latin": "mamnoon",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "water",
+    "persian": "آب",
+    "phonetic": "âb",
+    "latin": "aab",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "bread",
+    "persian": "نان",
+    "phonetic": "nân",
+    "latin": "naan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "tea",
+    "persian": "چای",
+    "phonetic": "chây",
+    "latin": "chaay",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "book",
+    "persian": "کتاب",
+    "phonetic": "ketâb",
+    "latin": "ketaab",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "house",
+    "persian": "خانه",
+    "phonetic": "khâne",
+    "latin": "khaaneh",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "school",
+    "persian": "مدرسه",
+    "phonetic": "madrese",
+    "latin": "madreseh",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "teacher",
+    "persian": "معلم",
+    "phonetic": "mo'allem",
+    "latin": "moallem",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "student",
+    "persian": "دانش‌آموز",
+    "phonetic": "dânesh-âmuz",
+    "latin": "danesh-amooz",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "friend",
+    "persian": "دوست",
+    "phonetic": "dust",
+    "latin": "doost",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "family",
+    "persian": "خانواده",
+    "phonetic": "khânevâde",
+    "latin": "khaanevaadeh",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "mother",
+    "persian": "مادر",
+    "phonetic": "mâdar",
+    "latin": "maadar",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "father",
+    "persian": "پدر",
+    "phonetic": "pedar",
+    "latin": "pedar",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "sister",
+    "persian": "خواهر",
+    "phonetic": "khâhar",
+    "latin": "khaahar",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "brother",
+    "persian": "برادر",
+    "phonetic": "barâdar",
+    "latin": "baraadar",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "cat",
+    "persian": "گربه",
+    "phonetic": "gorbe",
+    "latin": "gorbeh",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "dog",
+    "persian": "سگ",
+    "phonetic": "sag",
+    "latin": "sag",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "bird",
+    "persian": "پرنده",
+    "phonetic": "parande",
+    "latin": "parandeh",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "sun",
+    "persian": "خورشید",
+    "phonetic": "khorshid",
+    "latin": "khorshid",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "moon",
+    "persian": "ماه",
+    "phonetic": "mâh",
+    "latin": "maah",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "day",
+    "persian": "روز",
+    "phonetic": "ruz",
+    "latin": "rooz",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "night",
+    "persian": "شب",
+    "phonetic": "shab",
+    "latin": "shab",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "red",
+    "persian": "قرمز",
+    "phonetic": "ghermez",
+    "latin": "ghermez",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "blue",
+    "persian": "آبی",
+    "phonetic": "âbi",
+    "latin": "aabi",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "green",
+    "persian": "سبز",
+    "phonetic": "sabz",
+    "latin": "sabz",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "white",
+    "persian": "سفید",
+    "phonetic": "sefid",
+    "latin": "sefid",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "black",
+    "persian": "سیاه",
+    "phonetic": "siyâh",
+    "latin": "siyaah",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "one",
+    "persian": "یک",
+    "phonetic": "yek",
+    "latin": "yek",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "two",
+    "persian": "دو",
+    "phonetic": "do",
+    "latin": "do",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "three",
+    "persian": "سه",
+    "phonetic": "se",
+    "latin": "se",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "four",
+    "persian": "چهار",
+    "phonetic": "chahâr",
+    "latin": "chahaar",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "five",
+    "persian": "پنج",
+    "phonetic": "panj",
+    "latin": "panj",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "eat",
+    "persian": "خوردن",
+    "phonetic": "khordan",
+    "latin": "khordan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "drink",
+    "persian": "نوشیدن",
+    "phonetic": "nushidan",
+    "latin": "nooshidan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "go",
+    "persian": "رفتن",
+    "phonetic": "raftan",
+    "latin": "raftan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "come",
+    "persian": "آمدن",
+    "phonetic": "âmadan",
+    "latin": "aamadan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "see",
+    "persian": "دیدن",
+    "phonetic": "didan",
+    "latin": "didan",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "happy",
+    "persian": "خوشحال",
+    "phonetic": "khoshhâl",
+    "latin": "khoshhaal",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "small",
+    "persian": "کوچک",
+    "phonetic": "kuchek",
+    "latin": "koochak",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "big",
+    "persian": "بزرگ",
+    "phonetic": "bozorg",
+    "latin": "bozorg",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "fast",
+    "persian": "سریع",
+    "phonetic": "sari'",
+    "latin": "sari",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "slow",
+    "persian": "آهسته",
+    "phonetic": "âheste",
+    "latin": "aahesteh",
+    "level": 1,
+    "partOfSpeech": "reviewed",
+    "frequencyRank": null,
+    "source": "project-reviewed"
+  },
+  {
+    "english": "and",
+    "persian": "و",
+    "phonetic": "vɒv",
+    "latin": "vâv",
+    "level": 1,
+    "partOfSpeech": "conjunction",
+    "frequencyRank": 1,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "be",
+    "persian": "بودن",
+    "phonetic": "budæn",
+    "latin": "budan",
+    "level": 1,
+    "partOfSpeech": "verb",
+    "frequencyRank": 2,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "from",
+    "persian": "از",
+    "phonetic": "æz",
+    "latin": "az",
+    "level": 1,
+    "partOfSpeech": "preposition",
+    "frequencyRank": 3,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "to",
+    "persian": "به",
+    "phonetic": "be",
+    "latin": "be",
+    "level": 1,
+    "partOfSpeech": "preposition",
+    "frequencyRank": 4,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "which",
+    "persian": "کدام",
+    "phonetic": "kodɒːm",
+    "latin": "kodâm",
+    "level": 1,
+    "partOfSpeech": "pronoun",
+    "frequencyRank": 5,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "this",
+    "persian": "این",
+    "phonetic": "in",
+    "latin": "in",
+    "level": 1,
+    "partOfSpeech": "pronoun",
+    "frequencyRank": 6,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "in",
+    "persian": "در",
+    "phonetic": "dær",
+    "latin": "dar",
+    "level": 1,
+    "partOfSpeech": "preposition",
+    "frequencyRank": 7,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "with",
+    "persian": "با",
+    "phonetic": "bɒ",
+    "latin": "bâ",
+    "level": 1,
+    "partOfSpeech": "preposition",
+    "frequencyRank": 8,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "become",
+    "persian": "شدن",
+    "phonetic": "ʃodæn",
+    "latin": "shodan",
+    "level": 1,
+    "partOfSpeech": "adjective, verb",
+    "frequencyRank": 9,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "for",
+    "persian": "برای",
+    "phonetic": "bærɒje",
+    "latin": "barâye",
+    "level": 1,
+    "partOfSpeech": "preposition",
+    "frequencyRank": 10,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "self",
+    "persian": "خود",
+    "phonetic": "xod",
+    "latin": "khod",
+    "level": 1,
+    "partOfSpeech": "pronoun",
+    "frequencyRank": 11,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "that",
+    "persian": "آن",
+    "phonetic": "ɒn",
+    "latin": "ân",
+    "level": 1,
+    "partOfSpeech": "noun, pronoun, proper noun",
+    "frequencyRank": 13,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "want",
+    "persian": "خواستن",
+    "phonetic": "xɒstæn",
+    "latin": "khâstan",
+    "level": 1,
+    "partOfSpeech": "verb",
+    "frequencyRank": 14,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "until",
+    "persian": "تا",
+    "phonetic": "tɒ",
+    "latin": "tâ",
+    "level": 1,
+    "partOfSpeech": "preposition",
+    "frequencyRank": 15,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "have",
+    "persian": "داشتن",
+    "phonetic": "dɒʃtæn",
+    "latin": "dâshtan",
+    "level": 1,
+    "partOfSpeech": "verb",
+    "frequencyRank": 16,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "do",
+    "persian": "کردن",
+    "phonetic": "kærdæn",
+    "latin": "kardan",
+    "level": 1,
+    "partOfSpeech": "adjective, noun, verb",
+    "frequencyRank": 17,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "must",
+    "persian": "باید",
+    "phonetic": "bɒːjæd",
+    "latin": "bâyad",
+    "level": 1,
+    "partOfSpeech": "modal verb",
+    "frequencyRank": 19,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "first",
+    "persian": "اول",
+    "phonetic": "ævvæl",
+    "latin": "avval",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 20,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "on",
+    "persian": "بر",
+    "phonetic": "bær",
+    "latin": "bar",
+    "level": 1,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 21,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "year",
+    "persian": "سال",
+    "phonetic": "sɒl",
+    "latin": "sâl",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 22,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "arrive",
+    "persian": "رسیدن",
+    "phonetic": "residæn",
+    "latin": "residan",
+    "level": 1,
+    "partOfSpeech": "adjective, noun, verb",
+    "frequencyRank": 24,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "then",
+    "persian": "پس",
+    "phonetic": "pæs",
+    "latin": "pas",
+    "level": 1,
+    "partOfSpeech": "adjective, conjunction, noun",
+    "frequencyRank": 25,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "work",
+    "persian": "کار",
+    "phonetic": "kɒr",
+    "latin": "kâr",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 27,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "more",
+    "persian": "بیش",
+    "phonetic": "biʃ",
+    "latin": "bish",
+    "level": 1,
+    "partOfSpeech": "adjective, adverb, quantifier",
+    "frequencyRank": 28,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "other",
+    "persian": "دیگر",
+    "phonetic": "diɡær",
+    "latin": "diɡar",
+    "level": 1,
+    "partOfSpeech": "adjective, adverb, conjunction, pronoun",
+    "frequencyRank": 29,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "but",
+    "persian": "اما",
+    "phonetic": "æmmɒ",
+    "latin": "ammâ",
+    "level": 1,
+    "partOfSpeech": "conjunction",
+    "frequencyRank": 31,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "we",
+    "persian": "ما",
+    "phonetic": "mɒ",
+    "latin": "mâ",
+    "level": 1,
+    "partOfSpeech": "pronoun",
+    "frequencyRank": 32,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "country",
+    "persian": "کشور",
+    "phonetic": "keʃvær",
+    "latin": "keshvar",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 33,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "take",
+    "persian": "گرفتن",
+    "phonetic": "ɡereftæn",
+    "latin": "ɡereftan",
+    "level": 1,
+    "partOfSpeech": "adjective, noun, verb",
+    "frequencyRank": 34,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "before",
+    "persian": "پیش",
+    "phonetic": "piʃ",
+    "latin": "pish",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 35,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "say",
+    "persian": "گفتن",
+    "phonetic": "ɡoftæn",
+    "latin": "ɡoftan",
+    "level": 1,
+    "partOfSpeech": "verb",
+    "frequencyRank": 37,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "city",
+    "persian": "شهر",
+    "phonetic": "ʃæhr",
+    "latin": "shahr",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 40,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "or",
+    "persian": "یا",
+    "phonetic": "jɒ",
+    "latin": "yâ",
+    "level": 1,
+    "partOfSpeech": "conjunction",
+    "frequencyRank": 41,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "give",
+    "persian": "دادن",
+    "phonetic": "dɒdæn",
+    "latin": "dâdan",
+    "level": 1,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 42,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "also",
+    "persian": "نیز",
+    "phonetic": "niz",
+    "latin": "niz",
+    "level": 1,
+    "partOfSpeech": "conjunction",
+    "frequencyRank": 44,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "between",
+    "persian": "میان",
+    "phonetic": "mijɒn",
+    "latin": "miyân",
+    "level": 1,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 45,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "face",
+    "persian": "صورت",
+    "phonetic": "suræt",
+    "latin": "surat",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 46,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "very",
+    "persian": "خیلی",
+    "phonetic": "xejli",
+    "latin": "kheyli",
+    "level": 1,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 51,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "opinion",
+    "persian": "نظر",
+    "phonetic": "næzær",
+    "latin": "nazar",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 55,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "people",
+    "persian": "مردم",
+    "phonetic": "mærdom",
+    "latin": "mardom",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 56,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "only",
+    "persian": "فقط",
+    "phonetic": "fæɣæt",
+    "latin": "faghat",
+    "level": 1,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 57,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "every",
+    "persian": "همه",
+    "phonetic": "hæme",
+    "latin": "hame",
+    "level": 1,
+    "partOfSpeech": "pronoun, quantifier",
+    "frequencyRank": 58,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "important",
+    "persian": "مهم",
+    "phonetic": "mohem",
+    "latin": "mohem",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 59,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "close",
+    "persian": "نزدیک",
+    "phonetic": "næzdik",
+    "latin": "nazdik",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 61,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "hand",
+    "persian": "دست",
+    "phonetic": "dæst",
+    "latin": "dast",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 66,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "several",
+    "persian": "چند",
+    "phonetic": "ʧænd",
+    "latin": "chand",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 67,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "group",
+    "persian": "گروه",
+    "phonetic": "ɡoruh",
+    "latin": "ɡoruh",
+    "level": 1,
+    "partOfSpeech": "adjective, noun, quantifier",
+    "frequencyRank": 70,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "if",
+    "persian": "اگر",
+    "phonetic": "æɡær",
+    "latin": "aɡar",
+    "level": 1,
+    "partOfSpeech": "conjunction",
+    "frequencyRank": 77,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "past",
+    "persian": "گذشته",
+    "phonetic": "ɡozæʃte",
+    "latin": "ɡozashte",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 78,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "time",
+    "persian": "زمان",
+    "phonetic": "zæmɒn",
+    "latin": "zamân",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 83,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "problem",
+    "persian": "مسئله",
+    "phonetic": "mæsʔæle",
+    "latin": "mas'ale",
+    "level": 1,
+    "partOfSpeech": "noun, proper noun",
+    "frequencyRank": 74,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "know",
+    "persian": "دانستن",
+    "phonetic": "dɒnestæn",
+    "latin": "dânestan",
+    "level": 1,
+    "partOfSpeech": "verb",
+    "frequencyRank": 87,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "better",
+    "persian": "بهتر",
+    "phonetic": "behtær",
+    "latin": "behtar",
+    "level": 1,
+    "partOfSpeech": "adjective, adverb",
+    "frequencyRank": 89,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "result",
+    "persian": "نتیجه",
+    "phonetic": "nætiʤe",
+    "latin": "natije",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 92,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "person",
+    "persian": "شخص",
+    "phonetic": "ʃæxs",
+    "latin": "shakhs",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 98,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "find",
+    "persian": "یافتن",
+    "phonetic": "jɒftæn",
+    "latin": "yâftan",
+    "level": 1,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 99,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "different",
+    "persian": "مختلف",
+    "phonetic": "moxtælef",
+    "latin": "mokhtalef",
+    "level": 1,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 100,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "i",
+    "persian": "من",
+    "phonetic": "mæn",
+    "latin": "man",
+    "level": 1,
+    "partOfSpeech": "pronoun",
+    "frequencyRank": 102,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "world",
+    "persian": "جهان",
+    "phonetic": "ʤæhɒn",
+    "latin": "jahân",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 104,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "new",
+    "persian": "جدید",
+    "phonetic": "ʤædid",
+    "latin": "jadid",
+    "level": 1,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 108,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "what",
+    "persian": "چه",
+    "phonetic": "ʧe",
+    "latin": "che",
+    "level": 1,
+    "partOfSpeech": "adverb, conjunction, noun, pronoun, verb",
+    "frequencyRank": 110,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "bring",
+    "persian": "آوردن",
+    "phonetic": "ɒværdæn",
+    "latin": "âvardan",
+    "level": 1,
+    "partOfSpeech": "adjective, noun, verb",
+    "frequencyRank": 112,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "young",
+    "persian": "جوان",
+    "phonetic": "ʤævɒn",
+    "latin": "javân",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 122,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "second",
+    "persian": "دوم",
+    "phonetic": "dovvom",
+    "latin": "dovvom",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 126,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "reason",
+    "persian": "دلیل",
+    "phonetic": "dælil",
+    "latin": "dalil",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 127,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "name",
+    "persian": "نام",
+    "phonetic": "nɒm",
+    "latin": "nâm",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 130,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "some",
+    "persian": "بعضی",
+    "phonetic": "bæʔzi",
+    "latin": "ba'zi",
+    "level": 1,
+    "partOfSpeech": "pronoun",
+    "frequencyRank": 141,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "thousand",
+    "persian": "هزار",
+    "phonetic": "hezɒr",
+    "latin": "hezâr",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 150,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "even",
+    "persian": "حتی",
+    "phonetic": "hættɒ",
+    "latin": "hattâ",
+    "level": 1,
+    "partOfSpeech": "adverb, conjunction",
+    "frequencyRank": 160,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "end",
+    "persian": "پایان",
+    "phonetic": "pɒjɒn",
+    "latin": "pâyân",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 163,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "place",
+    "persian": "جا",
+    "phonetic": "ʤɒ",
+    "latin": "jâ",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 166,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "possible",
+    "persian": "ممکن",
+    "phonetic": "momken",
+    "latin": "momken",
+    "level": 1,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 167,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "right",
+    "persian": "حق",
+    "phonetic": "hæɣ",
+    "latin": "hagh",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 172,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "future",
+    "persian": "آینده",
+    "phonetic": "ɒjænde",
+    "latin": "âyande",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 180,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "type",
+    "persian": "نوع",
+    "phonetic": "nowʔ",
+    "latin": "now'",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 181,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "main",
+    "persian": "اصلی",
+    "phonetic": "æsli",
+    "latin": "asli",
+    "level": 1,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 186,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "action",
+    "persian": "عمل",
+    "phonetic": "æmæl",
+    "latin": "amal",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 189,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "life",
+    "persian": "زندگی",
+    "phonetic": "zendeɡi",
+    "latin": "zendeɡi",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 190,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "shape",
+    "persian": "شکل",
+    "phonetic": "ʃekl",
+    "latin": "shekl",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 195,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "together",
+    "persian": "همراه",
+    "phonetic": "hæmrɒh",
+    "latin": "hamrâh",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 199,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "today",
+    "persian": "امروز",
+    "phonetic": "emruz",
+    "latin": "emruz",
+    "level": 1,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 201,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "special",
+    "persian": "ویژه",
+    "phonetic": "viʒe",
+    "latin": "vizhe",
+    "level": 1,
+    "partOfSpeech": "adjective, adverb, conjunction",
+    "frequencyRank": 205,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "inside",
+    "persian": "داخل",
+    "phonetic": "dɒxel",
+    "latin": "dâkhel",
+    "level": 1,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 210,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "woman",
+    "persian": "زن",
+    "phonetic": "zæn",
+    "latin": "zan",
+    "level": 1,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 214,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "still",
+    "persian": "هنوز",
+    "phonetic": "hænuz",
+    "latin": "hanuz",
+    "level": 1,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 218,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "change",
+    "persian": "تغییر",
+    "phonetic": "tæɣjir",
+    "latin": "taghyir",
+    "level": 1,
+    "partOfSpeech": "noun",
+    "frequencyRank": 220,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "number",
+    "persian": "تعداد",
+    "phonetic": "teʔdɒd",
+    "latin": "te'dâd",
+    "level": 1,
+    "partOfSpeech": "noun, quantifier",
+    "frequencyRank": 221,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "million",
+    "persian": "میلیون",
+    "phonetic": "miljun",
+    "latin": "milyun",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 222,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "third",
+    "persian": "سوم",
+    "phonetic": "sevvom",
+    "latin": "sevvom",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 230,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "service",
+    "persian": "خدمت",
+    "phonetic": "xedmæt",
+    "latin": "khedmat",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 231,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "news",
+    "persian": "خبر",
+    "phonetic": "xæbær",
+    "latin": "khabar",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 232,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "complete",
+    "persian": "کامل",
+    "phonetic": "kɒmel",
+    "latin": "kâmel",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 234,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "free",
+    "persian": "آزاد",
+    "phonetic": "ɒzɒd",
+    "latin": "âzâd",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 235,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "source",
+    "persian": "منبع",
+    "phonetic": "mænbæʔ",
+    "latin": "manba'",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 236,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "line",
+    "persian": "خط",
+    "phonetic": "xætt",
+    "latin": "khatt",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 237,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "power",
+    "persian": "قدرت",
+    "phonetic": "ɣodræt",
+    "latin": "ghodrat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 152,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "need",
+    "persian": "نیاز",
+    "phonetic": "nijɒz",
+    "latin": "niyâz",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 239,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "responsible",
+    "persian": "مسئول",
+    "phonetic": "mæsʔul",
+    "latin": "mas'ul",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 240,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "rate",
+    "persian": "میزان",
+    "phonetic": "mizɒn",
+    "latin": "mizân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 245,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "growth",
+    "persian": "رشد",
+    "phonetic": "roʃd",
+    "latin": "roshd",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 251,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "conversation",
+    "persian": "گفتگو",
+    "phonetic": "ɡoftoɡu",
+    "latin": "ɡoftoɡu",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 254,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "successful",
+    "persian": "موفق",
+    "phonetic": "movæffæɣ",
+    "latin": "movaffagh",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 255,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "newspaper",
+    "persian": "روزنامه",
+    "phonetic": "ruznɒme",
+    "latin": "ruznâme",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 256,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "pass",
+    "persian": "گذشتن",
+    "phonetic": "ɡozæʃtæn",
+    "latin": "ɡozashtan",
+    "level": 2,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 257,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "during",
+    "persian": "طی",
+    "phonetic": "tej",
+    "latin": "tey",
+    "level": 2,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 258,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "war",
+    "persian": "جنگ",
+    "phonetic": "ʤænɡ",
+    "latin": "janɡ",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 263,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "way",
+    "persian": "راه",
+    "phonetic": "rɒh",
+    "latin": "râh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 47,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "decrease",
+    "persian": "کاهش",
+    "phonetic": "kɒheʃ",
+    "latin": "kâhesh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 266,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "recent",
+    "persian": "اخیر",
+    "phonetic": "æxir",
+    "latin": "akhir",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 267,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "week",
+    "persian": "هفته",
+    "phonetic": "hæfte",
+    "latin": "hafte",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 269,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "beginning",
+    "persian": "آغاز",
+    "phonetic": "ɒɣɒz",
+    "latin": "âghâz",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 270,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "stage",
+    "persian": "مرحله",
+    "phonetic": "mærhæle",
+    "latin": "marhale",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 271,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "industry",
+    "persian": "صنعت",
+    "phonetic": "sænʔæt",
+    "latin": "san'at",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 273,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "collaboration",
+    "persian": "همکاری",
+    "phonetic": "hæmkɒri",
+    "latin": "hamkâri",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 275,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "add",
+    "persian": "افزودن",
+    "phonetic": "æfzudæn",
+    "latin": "afzudan",
+    "level": 2,
+    "partOfSpeech": "verb",
+    "frequencyRank": 277,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "read",
+    "persian": "خواندن",
+    "phonetic": "xɒndæn",
+    "latin": "khândan",
+    "level": 2,
+    "partOfSpeech": "adjective, noun, verb",
+    "frequencyRank": 280,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "point",
+    "persian": "نقطه",
+    "phonetic": "noɣte",
+    "latin": "noghte",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 284,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "production",
+    "persian": "تولید",
+    "phonetic": "towlid",
+    "latin": "towlid",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 286,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "help",
+    "persian": "کمک",
+    "phonetic": "komæk",
+    "latin": "komak",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 293,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "now",
+    "persian": "اکنون",
+    "phonetic": "æknun",
+    "latin": "aknun",
+    "level": 2,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 298,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "importance",
+    "persian": "اهمیت",
+    "phonetic": "ɒhæmmijjæt",
+    "latin": "âhammiyyat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 299,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "thought",
+    "persian": "اندیشه",
+    "phonetic": "ændiʃe",
+    "latin": "andishe",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 300,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "province",
+    "persian": "استان",
+    "phonetic": "ostɒn",
+    "latin": "ostân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 301,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "defense",
+    "persian": "دفاع",
+    "phonetic": "defɒʔ",
+    "latin": "defâ'",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 302,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "letter",
+    "persian": "نامه",
+    "phonetic": "nɒme",
+    "latin": "nâme",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 303,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "human",
+    "persian": "انسان",
+    "phonetic": "ensɒn",
+    "latin": "ensân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 304,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "public",
+    "persian": "عمومی",
+    "phonetic": "omumi",
+    "latin": "omumi",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 306,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "serious",
+    "persian": "جدی",
+    "phonetic": "ʤeddi",
+    "latin": "jeddi",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 307,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "visit",
+    "persian": "دیدار",
+    "phonetic": "didɒr",
+    "latin": "didâr",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 308,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "opportunity",
+    "persian": "فرصت",
+    "phonetic": "forsæt",
+    "latin": "forsat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 311,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "university",
+    "persian": "دانشگاه",
+    "phonetic": "dɒneʃɡɒh",
+    "latin": "dâneshɡâh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 312,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "emphasis",
+    "persian": "تأکید",
+    "phonetic": "tæʔkid",
+    "latin": "ta'kid",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 314,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "write",
+    "persian": "نوشتن",
+    "phonetic": "neveʃtæn",
+    "latin": "neveshtan",
+    "level": 2,
+    "partOfSpeech": "adjective, noun, verb",
+    "frequencyRank": 315,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "build",
+    "persian": "ساختن",
+    "phonetic": "sɒxtæn",
+    "latin": "sâkhtan",
+    "level": 2,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 316,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "order",
+    "persian": "ترتیب",
+    "phonetic": "tærtib",
+    "latin": "tartib",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 317,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "freedom",
+    "persian": "آزادی",
+    "phonetic": "ɒzɒdi",
+    "latin": "âzâdi",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 321,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "situation",
+    "persian": "وضعیت",
+    "phonetic": "væzʔijjæt",
+    "latin": "vaz'iyyat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 322,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "whether",
+    "persian": "آیا",
+    "phonetic": "ɒjɒ",
+    "latin": "âyâ",
+    "level": 2,
+    "partOfSpeech": "adverb, conjunction",
+    "frequencyRank": 323,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "flow",
+    "persian": "جریان",
+    "phonetic": "ʤæræjɒn",
+    "latin": "jarayân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 324,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "effort",
+    "persian": "تلاش",
+    "phonetic": "tælɒʃ",
+    "latin": "talâsh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 325,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "necessary",
+    "persian": "لازم",
+    "phonetic": "lɒzem",
+    "latin": "lâzem",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 326,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "protection",
+    "persian": "حمایت",
+    "phonetic": "hemɒjæt",
+    "latin": "hemâyat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 327,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "thing",
+    "persian": "چیز",
+    "phonetic": "ʧiz",
+    "latin": "chiz",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 328,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "continuation",
+    "persian": "ادامه",
+    "phonetic": "edɒme",
+    "latin": "edâme",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 329,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "history",
+    "persian": "تاریخ",
+    "phonetic": "tɒrix",
+    "latin": "târikh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 332,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "scientific",
+    "persian": "علمی",
+    "phonetic": "elmi",
+    "latin": "elmi",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 333,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "level",
+    "persian": "سطح",
+    "phonetic": "sæth",
+    "latin": "sath",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 334,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "social",
+    "persian": "اجتماعی",
+    "phonetic": "eʤtemɒʔi",
+    "latin": "ejtemâ'i",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 335,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "professor",
+    "persian": "استاد",
+    "phonetic": "ostɒd",
+    "latin": "ostâd",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 336,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "image",
+    "persian": "تصویر",
+    "phonetic": "tæsvir",
+    "latin": "tasvir",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 339,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "specific",
+    "persian": "خاص",
+    "phonetic": "xɒss",
+    "latin": "khâss",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 342,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "opposite",
+    "persian": "مقابل",
+    "phonetic": "moɣɒbel",
+    "latin": "moghâbel",
+    "level": 2,
+    "partOfSpeech": "adjective, noun, preposition",
+    "frequencyRank": 343,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "travel",
+    "persian": "سفر",
+    "phonetic": "sæfær",
+    "latin": "safar",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 344,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "culture",
+    "persian": "فرهنگ",
+    "phonetic": "færhænɡ",
+    "latin": "farhanɡ",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 346,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "proposal",
+    "persian": "پیشنهاد",
+    "phonetic": "piʃnehɒd",
+    "latin": "pishnehâd",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 350,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "meaning",
+    "persian": "معنا",
+    "phonetic": "mæʔnɒ",
+    "latin": "ma'nâ",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 352,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "beside",
+    "persian": "کنار",
+    "phonetic": "kenɒr",
+    "latin": "kenâr",
+    "level": 2,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 353,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "vote",
+    "persian": "رأی",
+    "phonetic": "ræɁj",
+    "latin": "raɁy",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 354,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "security",
+    "persian": "امنیت",
+    "phonetic": "æmniːjæt",
+    "latin": "amniyat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 357,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "population",
+    "persian": "جمعیت",
+    "phonetic": "ʤæmʔijjæt",
+    "latin": "jam'iyyat",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 359,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "religion",
+    "persian": "دین",
+    "phonetic": "din",
+    "latin": "din",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 360,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "possibility",
+    "persian": "امکان",
+    "phonetic": "emkɒn",
+    "latin": "emkân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 361,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "science",
+    "persian": "علم",
+    "phonetic": "elm",
+    "latin": "elm",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 362,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "waiting",
+    "persian": "انتظار",
+    "phonetic": "entezɒr",
+    "latin": "entezâr",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 363,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "short",
+    "persian": "کوتاه",
+    "phonetic": "kutɒh",
+    "latin": "kutâh",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 364,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "market",
+    "persian": "بازار",
+    "phonetic": "bɒzɒr",
+    "latin": "bâzâr",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 365,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "meeting",
+    "persian": "جلسه",
+    "phonetic": "ʤælæse",
+    "latin": "jalase",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 374,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "doctor",
+    "persian": "دکتر",
+    "phonetic": "doktor",
+    "latin": "doktor",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 375,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "question",
+    "persian": "سؤال",
+    "phonetic": "soʔɒl",
+    "latin": "so'âl",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 376,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "space",
+    "persian": "فضا",
+    "phonetic": "fæzɒ",
+    "latin": "fazâ",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 377,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "film",
+    "persian": "فیلم",
+    "phonetic": "film",
+    "latin": "film",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 378,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "office",
+    "persian": "دفتر",
+    "phonetic": "dæftær",
+    "latin": "daftar",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 380,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "competition",
+    "persian": "مسابقه",
+    "phonetic": "mosɒbeɣe",
+    "latin": "mosâbeghe",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 384,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "minute",
+    "persian": "دقیقه",
+    "phonetic": "dæɣiɣe",
+    "latin": "daghighe",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 388,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "expression",
+    "persian": "بیان",
+    "phonetic": "bæjɒn",
+    "latin": "bayân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 390,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "unit",
+    "persian": "واحد",
+    "phonetic": "vɒhed",
+    "latin": "vâhed",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 391,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "death",
+    "persian": "مرگ",
+    "phonetic": "mærɡ",
+    "latin": "marɡ",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 393,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "speech",
+    "persian": "سخن",
+    "phonetic": "soxæn",
+    "latin": "sokhan",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 394,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "hope",
+    "persian": "امید",
+    "phonetic": "omid",
+    "latin": "omid",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 402,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "method",
+    "persian": "روش",
+    "phonetic": "ræveʃ",
+    "latin": "ravesh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 403,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "oil",
+    "persian": "نفت",
+    "phonetic": "næft",
+    "latin": "naft",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 406,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "print",
+    "persian": "چاپ",
+    "phonetic": "ʧɒp",
+    "latin": "châp",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 408,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "network",
+    "persian": "شبکه",
+    "phonetic": "ʃæbæke",
+    "latin": "shabake",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 409,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "when",
+    "persian": "وقتی",
+    "phonetic": "væɣti",
+    "latin": "vaghti",
+    "level": 2,
+    "partOfSpeech": "conjunction, noun",
+    "frequencyRank": 411,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "obstacle",
+    "persian": "مانع",
+    "phonetic": "mɒneʔ",
+    "latin": "mâne'",
+    "level": 2,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 413,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sign",
+    "persian": "نشان",
+    "phonetic": "neʃɒn",
+    "latin": "neshân",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 415,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "appropriate",
+    "persian": "مناسب",
+    "phonetic": "monɒseb",
+    "latin": "monâseb",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 416,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "process",
+    "persian": "روند",
+    "phonetic": "rævænd",
+    "latin": "ravand",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 418,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "ready",
+    "persian": "آماده",
+    "phonetic": "ɒmɒde",
+    "latin": "âmâde",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 421,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "money",
+    "persian": "پول",
+    "phonetic": "pul",
+    "latin": "pul",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 422,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "reply",
+    "persian": "پاسخ",
+    "phonetic": "pɒsox",
+    "latin": "pâsokh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 423,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "route",
+    "persian": "مسیر",
+    "phonetic": "mæsir",
+    "latin": "masir",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 426,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "reality",
+    "persian": "واقعیت",
+    "phonetic": "vɒɣeʔijjæt",
+    "latin": "vâghe'iyyat",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 427,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "pressure",
+    "persian": "فشار",
+    "phonetic": "feʃɒr",
+    "latin": "feshâr",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 429,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "correction",
+    "persian": "اصلاح",
+    "phonetic": "eslɒh",
+    "latin": "eslâh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 431,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "long",
+    "persian": "طولانی",
+    "phonetic": "tulɒni",
+    "latin": "tulâni",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 435,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "try",
+    "persian": "سعی",
+    "phonetic": "sæʔj",
+    "latin": "sa'y",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 436,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "start",
+    "persian": "شروع",
+    "phonetic": "ʃoruʔ",
+    "latin": "shoru'",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 437,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "length",
+    "persian": "طول",
+    "phonetic": "tul",
+    "latin": "tul",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 440,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "fresh",
+    "persian": "تازه",
+    "phonetic": "tɒze",
+    "latin": "tâze",
+    "level": 2,
+    "partOfSpeech": "adjective, adverb",
+    "frequencyRank": 455,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "article",
+    "persian": "مقاله",
+    "phonetic": "mæɣɒle",
+    "latin": "maghâle",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 457,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "man",
+    "persian": "مرد",
+    "phonetic": "mærd",
+    "latin": "mard",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 459,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "real",
+    "persian": "واقعی",
+    "phonetic": "vɒɣeʔi",
+    "latin": "vâghe'i",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 461,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "child",
+    "persian": "کودک",
+    "phonetic": "kudæk",
+    "latin": "kudak",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 467,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "cost",
+    "persian": "هزینه",
+    "phonetic": "hæzine",
+    "latin": "hazine",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 472,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "air",
+    "persian": "هوا",
+    "phonetic": "hævɒ",
+    "latin": "havâ",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 474,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "transfer",
+    "persian": "انتقال",
+    "phonetic": "enteɣɒl",
+    "latin": "enteghâl",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 477,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "research",
+    "persian": "تحقیق",
+    "phonetic": "tæhɣiɣ",
+    "latin": "tahghigh",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 479,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "heavy",
+    "persian": "سنگین",
+    "phonetic": "sænɡin",
+    "latin": "sanɡin",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 483,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "risk",
+    "persian": "خطر",
+    "phonetic": "xætær",
+    "latin": "khatar",
+    "level": 2,
+    "partOfSpeech": "noun",
+    "frequencyRank": 485,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "severe",
+    "persian": "شدید",
+    "phonetic": "ʃædid",
+    "latin": "shadid",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 488,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "related",
+    "persian": "مربوط",
+    "phonetic": "mærbut",
+    "latin": "marbut",
+    "level": 2,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 489,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "soccer",
+    "persian": "فوتبال",
+    "phonetic": "futbɒl",
+    "latin": "futbâl",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 490,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sufficient",
+    "persian": "کافی",
+    "phonetic": "kɒfi",
+    "latin": "kâfi",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 492,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "teaching",
+    "persian": "آموزش",
+    "phonetic": "ɒmuzeʃ",
+    "latin": "âmuzesh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 493,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "control",
+    "persian": "کنترل",
+    "phonetic": "kontrol",
+    "latin": "kontrol",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 495,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "look",
+    "persian": "نگاه",
+    "phonetic": "neɡɒh",
+    "latin": "neɡâh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 502,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "stay",
+    "persian": "ماندن",
+    "phonetic": "mɒndæn",
+    "latin": "mândan",
+    "level": 3,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 505,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "struggle",
+    "persian": "مبارزه",
+    "phonetic": "mobɒreze",
+    "latin": "mobâreze",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 507,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sample",
+    "persian": "نمونه",
+    "phonetic": "nemune",
+    "latin": "nemune",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 509,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "good",
+    "persian": "خوب",
+    "phonetic": "xub",
+    "latin": "khub",
+    "level": 3,
+    "partOfSpeech": "adjective, adverb",
+    "frequencyRank": 510,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "always",
+    "persian": "همیشه",
+    "phonetic": "hæmiʃe",
+    "latin": "hamishe",
+    "level": 3,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 513,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "success",
+    "persian": "موفقیت",
+    "phonetic": "movæffæɣijæt",
+    "latin": "movaffaghiyat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 515,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "consumption",
+    "persian": "مصرف",
+    "phonetic": "mæsræf",
+    "latin": "masraf",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 517,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "statistics",
+    "persian": "آمار",
+    "phonetic": "ɒmɒr",
+    "latin": "âmâr",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 520,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "decision",
+    "persian": "تصمیم",
+    "phonetic": "tæsmim",
+    "latin": "tasmim",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 526,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "experience",
+    "persian": "تجربه",
+    "phonetic": "tæʤrobe",
+    "latin": "tajrobe",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 528,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "price",
+    "persian": "قیمت",
+    "phonetic": "ɣejmæt",
+    "latin": "gheymat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 530,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "attack",
+    "persian": "حمله",
+    "phonetic": "hæmle",
+    "latin": "hamle",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 534,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "distance",
+    "persian": "فاصله",
+    "phonetic": "fɒsele",
+    "latin": "fâsele",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 536,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "economy",
+    "persian": "اقتصاد",
+    "phonetic": "eɣtesɒd",
+    "latin": "eghtesâd",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 537,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "spread",
+    "persian": "گسترش",
+    "phonetic": "ɡostæreʃ",
+    "latin": "ɡostaresh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 542,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "solution",
+    "persian": "حل",
+    "phonetic": "hæll",
+    "latin": "hall",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 543,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "step",
+    "persian": "گام",
+    "phonetic": "ɡɒm",
+    "latin": "ɡâm",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 545,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "feeling",
+    "persian": "احساس",
+    "phonetic": "ehsɒs",
+    "latin": "ehsâs",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 547,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "contract",
+    "persian": "قرارداد",
+    "phonetic": "ɣærɒrdɒd",
+    "latin": "gharârdâd",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 549,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "border",
+    "persian": "مرز",
+    "phonetic": "mærz",
+    "latin": "marz",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 550,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "finally",
+    "persian": "سرانجام",
+    "phonetic": "særænʤɒm",
+    "latin": "saranjâm",
+    "level": 3,
+    "partOfSpeech": "adverb, conjunction, noun",
+    "frequencyRank": 554,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "introduction",
+    "persian": "معرفی",
+    "phonetic": "moærrefi",
+    "latin": "moarrefi",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 555,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "because",
+    "persian": "زیرا",
+    "phonetic": "zirɒ",
+    "latin": "zirâ",
+    "level": 3,
+    "partOfSpeech": "conjunction",
+    "frequencyRank": 558,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sound",
+    "persian": "صدا",
+    "phonetic": "sedɒ",
+    "latin": "sedâ",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 562,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "blood",
+    "persian": "خون",
+    "phonetic": "xun",
+    "latin": "khun",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 566,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "hard",
+    "persian": "سخت",
+    "phonetic": "sæxt",
+    "latin": "sakht",
+    "level": 3,
+    "partOfSpeech": "adjective, adverb",
+    "frequencyRank": 571,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "bunch",
+    "persian": "دسته",
+    "phonetic": "dæste",
+    "latin": "daste",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 573,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "fire",
+    "persian": "آتش",
+    "phonetic": "ɒtæʃ",
+    "latin": "âtash",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 574,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "speed",
+    "persian": "سرعت",
+    "phonetic": "sorʔæt",
+    "latin": "sor'at",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 575,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "duty",
+    "persian": "وظیفه",
+    "phonetic": "væzife",
+    "latin": "vazife",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 578,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "active",
+    "persian": "فعال",
+    "phonetic": "fæʔɒːl",
+    "latin": "fa'âl",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 392,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "half",
+    "persian": "نیمه",
+    "phonetic": "nime",
+    "latin": "nime",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 581,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "north",
+    "persian": "شمال",
+    "phonetic": "ʃomɒl",
+    "latin": "shomâl",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 582,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "memory",
+    "persian": "یاد",
+    "phonetic": "jɒd",
+    "latin": "yâd",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 583,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "product",
+    "persian": "محصول",
+    "phonetic": "mæhsul",
+    "latin": "mahsul",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 588,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "eye",
+    "persian": "چشم",
+    "phonetic": "t͡ʃeʃm",
+    "latin": "cheshm",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 290,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "twenty",
+    "persian": "بیست",
+    "phonetic": "bist",
+    "latin": "bist",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 593,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "police",
+    "persian": "پلیس",
+    "phonetic": "polis",
+    "latin": "polis",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 598,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sale",
+    "persian": "فروش",
+    "phonetic": "foruʃ",
+    "latin": "forush",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 599,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "south",
+    "persian": "جنوب",
+    "phonetic": "ʤonub",
+    "latin": "jonub",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 601,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "illness",
+    "persian": "بیماری",
+    "phonetic": "bimɒri",
+    "latin": "bimâri",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 603,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "collection",
+    "persian": "مجموعه",
+    "phonetic": "mæʤmuʔe",
+    "latin": "majmu'e",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 606,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "basic",
+    "persian": "اساسی",
+    "phonetic": "æsɒsi",
+    "latin": "asâsi",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 608,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "previous",
+    "persian": "قبلی",
+    "phonetic": "ɣæbli",
+    "latin": "ghabli",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 609,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "base",
+    "persian": "پایه",
+    "phonetic": "pɒje",
+    "latin": "pâye",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 610,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "position",
+    "persian": "جایگاه",
+    "phonetic": "ʤɒjɡɒh",
+    "latin": "jâyɡâh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 615,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "belief",
+    "persian": "اعتقاد",
+    "phonetic": "eʔteɣɒd",
+    "latin": "e'teghâd",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 616,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "poetry",
+    "persian": "شعر",
+    "phonetic": "ʃeʔr",
+    "latin": "she'r",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 617,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "respect",
+    "persian": "احترام",
+    "phonetic": "ehterɒm",
+    "latin": "ehterâm",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 619,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "difference",
+    "persian": "اختلاف",
+    "phonetic": "extelɒf",
+    "latin": "ekhtelâf",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 623,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sea",
+    "persian": "دریا",
+    "phonetic": "dærjɒ",
+    "latin": "daryâ",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 625,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "building",
+    "persian": "ساختمان",
+    "phonetic": "sɒːxtemɒːn",
+    "latin": "sâkhtemân",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 627,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "reporter",
+    "persian": "خبرنگار",
+    "phonetic": "xæbærneɡɒr",
+    "latin": "khabarneɡâr",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 629,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "entry",
+    "persian": "ورود",
+    "phonetic": "vorud",
+    "latin": "vorud",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 632,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "against",
+    "persian": "علیه",
+    "phonetic": "ælejh",
+    "latin": "aleyh",
+    "level": 3,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 635,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "progress",
+    "persian": "پیشرفت",
+    "phonetic": "piʃræft",
+    "latin": "pishraft",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 636,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "ability",
+    "persian": "توان",
+    "phonetic": "tævɒn",
+    "latin": "tavân",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 638,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "available",
+    "persian": "موجود",
+    "phonetic": "mowʤud",
+    "latin": "mowjud",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 428,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "behavior",
+    "persian": "رفتار",
+    "phonetic": "ræftɒr",
+    "latin": "raftâr",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 642,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "prevention",
+    "persian": "جلوگیری",
+    "phonetic": "ʤelowɡiri",
+    "latin": "jelowɡiri",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 644,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "former",
+    "persian": "سابق",
+    "phonetic": "sɒbeɣ",
+    "latin": "sâbegh",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 645,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "legal",
+    "persian": "قانونی",
+    "phonetic": "ɣɒnuni",
+    "latin": "ghânuni",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 651,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "subject",
+    "persian": "موضوع",
+    "phonetic": "mowzuʔ",
+    "latin": "mowzu'",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 176,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "income",
+    "persian": "درآمد",
+    "phonetic": "dærɒmæd",
+    "latin": "darâmad",
+    "level": 3,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 657,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "expert",
+    "persian": "کارشناس",
+    "phonetic": "kɒrʃenɒs",
+    "latin": "kârshenâs",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 661,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "art",
+    "persian": "هنر",
+    "phonetic": "honær",
+    "latin": "honar",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 662,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "village",
+    "persian": "روستا",
+    "phonetic": "rustɒ",
+    "latin": "rustâ",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 665,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "natural",
+    "persian": "طبیعی",
+    "phonetic": "tæbiʔi",
+    "latin": "tabi'i",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 669,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "positive",
+    "persian": "مثبت",
+    "phonetic": "mosbæt",
+    "latin": "mosbat",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 673,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "project",
+    "persian": "پروژه",
+    "phonetic": "poroʒe",
+    "latin": "porozhe",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 675,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "age",
+    "persian": "سن",
+    "phonetic": "senn",
+    "latin": "senn",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 678,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "land",
+    "persian": "سرزمین",
+    "phonetic": "særzæmin",
+    "latin": "sarzamin",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 683,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "accept",
+    "persian": "پذیرفتن",
+    "phonetic": "pæziroftæn",
+    "latin": "paziroftan",
+    "level": 3,
+    "partOfSpeech": "verb",
+    "frequencyRank": 689,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "message",
+    "persian": "پیام",
+    "phonetic": "pæjɒm",
+    "latin": "payâm",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 692,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "private",
+    "persian": "خصوصی",
+    "phonetic": "xosusi",
+    "latin": "khosusi",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 693,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "invitation",
+    "persian": "دعوت",
+    "phonetic": "dæʔvæt",
+    "latin": "da'vat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 697,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "package",
+    "persian": "بسته",
+    "phonetic": "bæste",
+    "latin": "baste",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 702,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "root",
+    "persian": "ریشه",
+    "phonetic": "riʃe",
+    "latin": "rishe",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 704,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "fate",
+    "persian": "سرنوشت",
+    "phonetic": "særneveʃt",
+    "latin": "sarnevesht",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 710,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "account",
+    "persian": "حساب",
+    "phonetic": "hesɒb",
+    "latin": "hesâb",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 718,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "abundant",
+    "persian": "فراوان",
+    "phonetic": "færɒvɒn",
+    "latin": "farâvân",
+    "level": 3,
+    "partOfSpeech": "adjective, adverb",
+    "frequencyRank": 724,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "complex",
+    "persian": "پیچیده",
+    "phonetic": "piʧide",
+    "latin": "pichide",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 725,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "rescue",
+    "persian": "نجات",
+    "phonetic": "neʤɒt",
+    "latin": "nejât",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 727,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "gas",
+    "persian": "گاز",
+    "phonetic": "ɡɒz",
+    "latin": "ɡâz",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 728,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "next",
+    "persian": "بعدی",
+    "phonetic": "bæʔdi",
+    "latin": "ba'di",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 732,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "prison",
+    "persian": "زندان",
+    "phonetic": "zendɒn",
+    "latin": "zendân",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 733,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "court",
+    "persian": "دادگاه",
+    "phonetic": "dɒdɡɒh",
+    "latin": "dâdɡâh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 735,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "picture",
+    "persian": "عکس",
+    "phonetic": "æks",
+    "latin": "aks",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 742,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "improvement",
+    "persian": "بهبود",
+    "phonetic": "behbud",
+    "latin": "behbud",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 745,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "request",
+    "persian": "درخواست",
+    "phonetic": "dærxɒst",
+    "latin": "darkhâst",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 756,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "file",
+    "persian": "پرونده",
+    "phonetic": "pærvænde",
+    "latin": "parvande",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 759,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "present",
+    "persian": "حاضر",
+    "phonetic": "hɒzer",
+    "latin": "hâzer",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 158,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "weight",
+    "persian": "وزن",
+    "phonetic": "væzn",
+    "latin": "vazn",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 762,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "lack",
+    "persian": "عدم",
+    "phonetic": "ædæm",
+    "latin": "adam",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 764,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "there",
+    "persian": "آنجا",
+    "phonetic": "ɒnʤɒ",
+    "latin": "ânjâ",
+    "level": 3,
+    "partOfSpeech": "adverb, noun",
+    "frequencyRank": 775,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "knowledge",
+    "persian": "دانش",
+    "phonetic": "dɒneʃ",
+    "latin": "dânesh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 780,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "energy",
+    "persian": "انرژی",
+    "phonetic": "enerʒi",
+    "latin": "enerzhi",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 783,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "enemy",
+    "persian": "دشمن",
+    "phonetic": "doʃmæn",
+    "latin": "doshman",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 789,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "street",
+    "persian": "خیابان",
+    "phonetic": "xijɒbɒn",
+    "latin": "khiyâbân",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 796,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "again",
+    "persian": "دوباره",
+    "phonetic": "dobɒre",
+    "latin": "dobâre",
+    "level": 3,
+    "partOfSpeech": "adjective, adverb",
+    "frequencyRank": 813,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "road",
+    "persian": "جاده",
+    "phonetic": "ʤɒdde",
+    "latin": "jâdde",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 814,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "mistake",
+    "persian": "اشتباه",
+    "phonetic": "eʃtebɒh",
+    "latin": "eshtebâh",
+    "level": 3,
+    "partOfSpeech": "adjective, adverb, noun",
+    "frequencyRank": 817,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "how",
+    "persian": "چگونه",
+    "phonetic": "ʧeɡune",
+    "latin": "cheɡune",
+    "level": 3,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 818,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "here",
+    "persian": "اینجا",
+    "phonetic": "inʤɒ",
+    "latin": "injâ",
+    "level": 3,
+    "partOfSpeech": "adverb, noun",
+    "frequencyRank": 821,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "agriculture",
+    "persian": "کشاورزی",
+    "phonetic": "keʃɒværzi",
+    "latin": "keshâvarzi",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 826,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "player",
+    "persian": "بازیکن",
+    "phonetic": "bɒzikon",
+    "latin": "bâzikon",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 830,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "treatment",
+    "persian": "درمان",
+    "phonetic": "dærmɒn",
+    "latin": "darmân",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 840,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "east",
+    "persian": "شرق",
+    "phonetic": "ʃærɣ",
+    "latin": "shargh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 806,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "story",
+    "persian": "داستان",
+    "phonetic": "dɒstɒn",
+    "latin": "dâstân",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 869,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "beautiful",
+    "persian": "زیبا",
+    "phonetic": "zibɒ",
+    "latin": "zibâ",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 875,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "busy",
+    "persian": "مشغول",
+    "phonetic": "mæʃɣul",
+    "latin": "mashghul",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 876,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "event",
+    "persian": "اتفاق",
+    "phonetic": "ettefɒɣ",
+    "latin": "ettefâgh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 878,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "size",
+    "persian": "اندازه",
+    "phonetic": "ændɒze",
+    "latin": "andâze",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 879,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "permit",
+    "persian": "اجازه",
+    "phonetic": "eʤɒze",
+    "latin": "ejâze",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 882,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "study",
+    "persian": "مطالعه",
+    "phonetic": "motɒleʔe",
+    "latin": "motâle'e",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 886,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "army",
+    "persian": "ارتش",
+    "phonetic": "ærteʃ",
+    "latin": "artesh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 887,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "weakness",
+    "persian": "ضعف",
+    "phonetic": "zæʔf",
+    "latin": "za'f",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 888,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "honor",
+    "persian": "افتخار",
+    "phonetic": "eftexɒr",
+    "latin": "eftekhâr",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 889,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "television",
+    "persian": "تلویزیون",
+    "phonetic": "televizijon",
+    "latin": "televiziyon",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 893,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "factory",
+    "persian": "کارخانه",
+    "phonetic": "kɒrxɒne",
+    "latin": "kârkhâne",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 900,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "total",
+    "persian": "جمع",
+    "phonetic": "ʤæmʔ",
+    "latin": "jam'",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 349,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "kill",
+    "persian": "کشتن",
+    "phonetic": "koʃtæn",
+    "latin": "koshtan",
+    "level": 3,
+    "partOfSpeech": "noun, verb",
+    "frequencyRank": 903,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "local",
+    "persian": "محلی",
+    "phonetic": "mæhælli",
+    "latin": "mahalli",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 904,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "normal",
+    "persian": "عادی",
+    "phonetic": "ɒdi",
+    "latin": "âdi",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 905,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "heart",
+    "persian": "دل",
+    "phonetic": "del",
+    "latin": "del",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 910,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "tradition",
+    "persian": "سنت",
+    "phonetic": "sonnæt",
+    "latin": "sonnat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 912,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "justice",
+    "persian": "عدالت",
+    "phonetic": "edɒlæt",
+    "latin": "edâlat",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 916,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "morning",
+    "persian": "صبح",
+    "phonetic": "sobh",
+    "latin": "sobh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 918,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "profit",
+    "persian": "منفعت",
+    "phonetic": "mænfæʔæt",
+    "latin": "manfa'at",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 749,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "simple",
+    "persian": "ساده",
+    "phonetic": "sɒde",
+    "latin": "sâde",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 928,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "able",
+    "persian": "قادر",
+    "phonetic": "ɣɒder",
+    "latin": "ghâder",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 929,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "escape",
+    "persian": "فرار",
+    "phonetic": "færɒr",
+    "latin": "farâr",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 931,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "healthy",
+    "persian": "سالم",
+    "phonetic": "sɒlem",
+    "latin": "sâlem",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 934,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "peace",
+    "persian": "صلح",
+    "phonetic": "solh",
+    "latin": "solh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 937,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "gold",
+    "persian": "طلا",
+    "phonetic": "tælɒ",
+    "latin": "talâ",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 938,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "yesterday",
+    "persian": "دیروز",
+    "phonetic": "diruz",
+    "latin": "diruz",
+    "level": 3,
+    "partOfSpeech": "adverb",
+    "frequencyRank": 940,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "identity",
+    "persian": "هویت",
+    "phonetic": "hovijjæt",
+    "latin": "hoviyyat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 944,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "body",
+    "persian": "بدن",
+    "phonetic": "bædæn",
+    "latin": "badan",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 155,
+    "source": "miller-2009-via-wiktionary+project-review"
+  },
+  {
+    "english": "color",
+    "persian": "رنگ",
+    "phonetic": "rænɡ",
+    "latin": "ranɡ",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 951,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "quality",
+    "persian": "کیفیت",
+    "phonetic": "kejfijjæt",
+    "latin": "keyfiyyat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 953,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "back",
+    "persian": "پشت",
+    "phonetic": "poʃt",
+    "latin": "posht",
+    "level": 3,
+    "partOfSpeech": "noun, preposition",
+    "frequencyRank": 958,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "sport",
+    "persian": "ورزش",
+    "phonetic": "værzeʃ",
+    "latin": "varzesh",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 961,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "trust",
+    "persian": "اعتماد",
+    "phonetic": "eʔtemɒd",
+    "latin": "e'temâd",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 972,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "anxiety",
+    "persian": "نگرانی",
+    "phonetic": "neɡærɒni",
+    "latin": "neɡarâni",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 984,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "effective",
+    "persian": "مؤثر",
+    "phonetic": "moʔæsser",
+    "latin": "mo'asser",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 985,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "similar",
+    "persian": "مشابه",
+    "phonetic": "moʃɒbeh",
+    "latin": "moshâbeh",
+    "level": 3,
+    "partOfSpeech": "adjective",
+    "frequencyRank": 980,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "persian",
+    "persian": "فارسی",
+    "phonetic": "fɒrsi",
+    "latin": "fârsi",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 981,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "satisfaction",
+    "persian": "رضایت",
+    "phonetic": "rezɒjæt",
+    "latin": "rezâyat",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 983,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "century",
+    "persian": "قرن",
+    "phonetic": "ɣærn",
+    "latin": "gharn",
+    "level": 3,
+    "partOfSpeech": "noun",
+    "frequencyRank": 987,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "car",
+    "persian": "خودرو",
+    "phonetic": "xodrow",
+    "latin": "khodrow",
+    "level": 3,
+    "partOfSpeech": "adjective, noun",
+    "frequencyRank": 993,
+    "source": "miller-2009-via-wiktionary"
+  },
+  {
+    "english": "amount",
+    "persian": "مقدار",
+    "phonetic": "meɣdɒr",
+    "latin": "meghdâr",
+    "level": 3,
+    "partOfSpeech": "adverb, noun, quantifier",
+    "frequencyRank": 995,
+    "source": "miller-2009-via-wiktionary"
+  }
+]

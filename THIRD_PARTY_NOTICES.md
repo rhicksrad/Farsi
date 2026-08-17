@@ -6,15 +6,11 @@ The generated files under `public/data/dictionary/` are adapted from the [`gener
 
 Changes made by this project: conversion to a compact chunked JSON schema, case-insensitive headword merging, duplicate removal, whitespace normalization, and normalization of Arabic yeh/kaf characters to their Persian Unicode forms.
 
-## ipa-dict Persian pronunciations
+## Reviewed Persian learning curriculum
 
-Pronunciation-linked gameplay entries in `public/data/dictionary/game-pronounced.json` use the Persian word list from [open-dict-data/ipa-dict](https://github.com/open-dict-data/ipa-dict), distributed under the [MIT License](https://github.com/open-dict-data/ipa-dict/blob/master/LICENSE). IPA values are retained for phonetic clues and converted to a simplified Latin spelling for the secondary clue.
+`public/data/curriculum.json` is adapted from Wiktionary's [Miller–Aghajanian-Stewart Persian frequency list](https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists/Persian/Miller_Aghajanian-Stewart_2009_(index)), which provides ranks, Persian script, IPA, parts of speech, and definitions for 5,000 high-frequency words. The underlying ranking is based on a 150-million-word corpus of spoken and written Iranian Persian. Wiktionary text is available under the [Creative Commons Attribution-ShareAlike 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/).
 
-## Common English word ranking
-
-Gameplay vocabulary is filtered through the 20,000-word frequency list from [david47k/top-english-wordlists](https://github.com/david47k/top-english-wordlists), distributed under the [Creative Commons Attribution 3.0 license](https://creativecommons.org/licenses/by/3.0/). This removes obscure dictionary headwords and keeps the bank focused on practical modern vocabulary.
-
-The frequency-ranked words are further checked against [Re-Enable](https://github.com/JakesMD/Re-Enable), an MIT-licensed game-oriented English lexicon without proper nouns or profanity. The build also excludes entries that predominantly appear capitalized and uses an independent English–Persian dictionary as a cross-check before a translation may become a target.
+Changes made by this project: selection of compact learner-appropriate senses from ranks 1–1,000; removal of proper nouns, inflections, ambiguous definitions, technical vocabulary, and duplicate English or Persian answers; correction of Persian Unicode/spelling artifacts; conversion of IPA to a readable Latin clue; assignment to three learning levels; and addition of a small project-reviewed set of conversational essentials. `public/data/curriculum.json` is distributed under CC BY-SA 4.0. The 241,000-headword reference dictionary does not determine scored answers.
 
 ## Poly Haven texture pack
 

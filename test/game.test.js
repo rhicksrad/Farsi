@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { WORDS } from "../src/data/words.js";
@@ -16,10 +17,37 @@ import {
 } from "../src/game.js";
 import { carveCrater, createTerrainProfile } from "../src/terrain-model.js";
 
+const CURRICULUM = JSON.parse(
+  await readFile(new URL("../public/data/curriculum.json", import.meta.url), "utf8"),
+);
+
 test("difficulty modes use the requested bank sizes", () => {
   assert.equal(DIFFICULTIES.beginner.bankSize, 4);
   assert.equal(DIFFICULTIES.medium.bankSize, 8);
   assert.equal(DIFFICULTIES.hard.bankSize, 20);
+});
+
+test("difficulty modes progressively expand the reviewed curriculum", () => {
+  assert.equal(DIFFICULTIES.beginner.curriculumLevel, 1);
+  assert.equal(DIFFICULTIES.medium.curriculumLevel, 2);
+  assert.equal(DIFFICULTIES.hard.curriculumLevel, 3);
+  const poolSizes = Object.values(DIFFICULTIES).map(
+    ({ curriculumLevel }) => CURRICULUM.filter((word) => word.level <= curriculumLevel).length,
+  );
+  assert.ok(poolSizes[0] >= 100);
+  assert.ok(poolSizes[0] < poolSizes[1]);
+  assert.ok(poolSizes[1] < poolSizes[2]);
+});
+
+test("the scored curriculum contains only unique compact reviewed entries", () => {
+  assert.ok(CURRICULUM.length >= 400);
+  assert.equal(new Set(CURRICULUM.map((word) => word.english)).size, CURRICULUM.length);
+  assert.equal(new Set(CURRICULUM.map((word) => word.persian)).size, CURRICULUM.length);
+  for (const word of CURRICULUM) {
+    assert.match(word.english, /^[a-z]+(?:['’-][a-z]+)*$/);
+    assert.doesNotMatch(word.persian, /\s/);
+    assert.ok(word.phonetic && word.latin && word.source);
+  }
 });
 
 test("terrain must be deeply excavated before the word bank is exposed", () => {

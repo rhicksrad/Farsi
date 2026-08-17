@@ -3,6 +3,7 @@ import { carveCrater, createTerrainProfile } from "./terrain-model.js";
 
 const { Bodies, Body, Composite, Engine } = Matter;
 const ROCK_COLORS = ["#6e664d", "#7b7355", "#575b46", "#8b7a57", "#4b5140"];
+const PHYSICS_STEP = 1000 / 60;
 
 export function setupTerrain(arena) {
   const canvas = arena.querySelector("[data-ground]");
@@ -21,6 +22,7 @@ export function setupTerrain(arena) {
   let roughnessPattern = null;
   let frameId = 0;
   let previousTime = performance.now();
+  let physicsAccumulator = 0;
 
   const diffuseImage = loadTexture("./assets/textures/rock-ground/diffuse.jpg", refreshPatterns);
   const roughnessImage = loadTexture("./assets/textures/rock-ground/roughness.jpg", refreshPatterns);
@@ -295,9 +297,13 @@ export function setupTerrain(arena) {
   }
 
   function tick(now) {
-    const delta = Math.min(32, now - previousTime);
+    const delta = Math.min(50, now - previousTime);
     previousTime = now;
-    Engine.update(engine, delta);
+    physicsAccumulator += delta;
+    while (physicsAccumulator >= PHYSICS_STEP) {
+      Engine.update(engine, PHYSICS_STEP);
+      physicsAccumulator -= PHYSICS_STEP;
+    }
 
     for (const particle of dust) {
       const frameScale = delta / 16.67;

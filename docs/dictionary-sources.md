@@ -12,13 +12,19 @@ The project uses the `generic-13` dictionary from Vahid Nasiri's [EnglishToPersi
 
 Run `npm run data:import` to download, validate, normalize, deduplicate, and regenerate the browser assets. The normalization converts Arabic yeh/kaf code points commonly found in older Persian datasets to Persian Unicode code points.
 
-This is a broad lookup dictionary, not a reviewed curriculum. Some translations are archaic, specialized, duplicated, split into numbered senses, or missing context. The repository states an Apache-2.0 license for the collection but does not document the provenance of every legacy sub-dictionary. Words used in scored lessons should live in a smaller, human-reviewed lesson dataset with difficulty, part of speech, transliteration, examples, and accepted-answer variants.
+This is a broad lookup dictionary, not a reviewed curriculum. Some translations are archaic, specialized, duplicated, split into numbered senses, or missing context. It is retained as a reference only and never determines a scored answer.
+
+## Scored curriculum
+
+Scored rounds use `public/data/curriculum.json`, a compact three-level curriculum adapted from Wiktionary's Miller–Aghajanian-Stewart Persian frequency list. The ranking is based on a 150-million-word spoken-and-written Iranian Persian corpus. Each included target has Persian script, IPA, readable Latin transliteration, part of speech, provenance, and its original corpus rank where applicable.
+
+The selection is an explicit reviewed allowlist, not an automatic dictionary merge. Proper nouns, technical terms, inflected forms, multi-sense glosses, duplicate answers, and questionable pairs are excluded. Project-reviewed conversational essentials supplement the corpus because greetings, food, family, colors, and basic numbers are underrepresented in formal corpora. Run `npm run data:curriculum` to reproduce the checked-in curriculum from Wiktionary's current table.
 
 ## Other sources reviewed
 
 ### Kaikki / English Wiktionary
 
-[Kaikki's machine-readable Wiktionary extraction](https://kaikki.org/dictionary/index.html) provides structured senses, translations, pronunciation, and grammatical metadata. It is the best candidate for enriching reviewed words later, but its full raw English dump is very large and its CC BY-SA/GFDL terms require careful attribution and share-alike handling for derived dictionary data.
+[Kaikki's machine-readable Wiktionary extraction](https://kaikki.org/dictionary/index.html) provides structured senses, translations, pronunciation, and grammatical metadata. It remains a useful candidate for examples and richer grammatical metadata later; the current scored curriculum instead uses the smaller learner-frequency table with explicit CC BY-SA attribution.
 
 ### English-Persian Dictionary Dataset (300k+)
 
