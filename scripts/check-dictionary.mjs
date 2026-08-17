@@ -39,7 +39,7 @@ if (translationPairs !== manifest.uniqueTranslationPairs) {
 }
 
 const gameHeadwords = await readJson(new URL("game-headwords.json", directory));
-if (gameHeadwords.length < 15_000) {
+if (gameHeadwords.length < 1_400) {
   throw new Error(`Clean gameplay index is unexpectedly small: ${gameHeadwords.length}.`);
 }
 for (const english of gameHeadwords) {
@@ -49,11 +49,11 @@ for (const english of gameHeadwords) {
 }
 
 const hardWords = await readJson(new URL("game-hard.json", directory));
-if (hardWords.length < 11_000) {
+if (hardWords.length < 2_800) {
   throw new Error(`Compact translation pool is unexpectedly small: ${hardWords.length}.`);
 }
 const pronounced = await readJson(new URL("game-pronounced.json", directory));
-if (pronounced.length < 2_800) {
+if (pronounced.length < 250) {
   throw new Error(`Gameplay pronunciation pool is unexpectedly small: ${pronounced.length}.`);
 }
 for (const [poolName, words] of [["hard", hardWords], ["pronounced", pronounced]]) {

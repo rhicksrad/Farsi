@@ -14,6 +14,8 @@ Pronunciation-linked gameplay entries in `public/data/dictionary/game-pronounced
 
 Gameplay vocabulary is filtered through the 20,000-word frequency list from [david47k/top-english-wordlists](https://github.com/david47k/top-english-wordlists), distributed under the [Creative Commons Attribution 3.0 license](https://creativecommons.org/licenses/by/3.0/). This removes obscure dictionary headwords and keeps the bank focused on practical modern vocabulary.
 
+The frequency-ranked words are further checked against [Re-Enable](https://github.com/JakesMD/Re-Enable), an MIT-licensed game-oriented English lexicon without proper nouns or profanity. The build also excludes entries that predominantly appear capitalized and uses an independent English–Persian dictionary as a cross-check before a translation may become a target.
+
 ## Poly Haven texture pack
 
 The files under `public/assets/textures/rock-ground/` are the 1K JPG maps from [Rock Ground](https://polyhaven.com/a/rock_ground) by Rob Tuytel, distributed through Poly Haven under the [CC0 1.0 Universal license](https://creativecommons.org/publicdomain/zero/1.0/).
