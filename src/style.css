@@ -459,7 +459,7 @@ h2 { font-size: 1.15rem; }
   font-weight: 650;
   text-align: left;
   text-overflow: ellipsis;
-  text-transform: capitalize;
+  text-transform: none;
   white-space: nowrap;
   cursor: pointer;
   transition: 130ms ease;

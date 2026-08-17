@@ -1,15 +1,17 @@
-import { WORDS } from "./data/words.js";
-
 const dictionaryBase = `${import.meta.env.BASE_URL}data/dictionary/`;
 
 let headwordsPromise;
+let pronouncedPromise;
 let headwordDeck = [];
 let targetDeck = [];
 
 export async function resetDictionaryDecks(_difficulty, random = Math.random) {
-  const headwords = await loadJson("game-headwords.json", "headwords");
+  const [headwords, targets] = await Promise.all([
+    loadJson("game-headwords.json", "headwords"),
+    loadJson("game-pronounced.json", "pronounced"),
+  ]);
   headwordDeck = shuffle(headwords, random);
-  targetDeck = shuffle(WORDS, random);
+  targetDeck = shuffle(targets, random);
   return { headwords: headwords.length, targets: targetDeck.length };
 }
 
@@ -38,12 +40,14 @@ export async function createDictionaryRound(difficulty, bankSize, random = Math.
 
 function loadJson(file, cacheName) {
   if (cacheName === "headwords" && headwordsPromise) return headwordsPromise;
+  if (cacheName === "pronounced" && pronouncedPromise) return pronouncedPromise;
 
   const promise = fetch(`${dictionaryBase}${file}`).then((response) => {
     if (!response.ok) throw new Error(`${file} returned ${response.status}`);
     return response.json();
   });
   if (cacheName === "headwords") headwordsPromise = promise;
+  if (cacheName === "pronounced") pronouncedPromise = promise;
   return promise;
 }
 
