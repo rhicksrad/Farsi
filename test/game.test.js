@@ -9,6 +9,7 @@ import {
   buildWordBank,
   createWordDeck,
   drawWordBankFromDeck,
+  groundImpactProfile,
   pickNextWord,
   shortcutLabel,
   streakMultiplier,
@@ -53,6 +54,18 @@ test("the scored curriculum contains only unique compact reviewed entries", () =
 test("terrain must be deeply excavated before the word bank is exposed", () => {
   assert.ok(BANK_EXPOSURE_RATIO > 0.7);
   assert.ok(BANK_EXPOSURE_RATIO < 0.9);
+});
+
+test("successive ground impacts grow larger and launch debris harder", () => {
+  const first = groundImpactProfile(1_000, 1, () => 0.5);
+  const third = groundImpactProfile(1_000, 3, () => 0.5);
+  const sixth = groundImpactProfile(1_000, 6, () => 0.5);
+
+  assert.ok(first.radius >= 60);
+  assert.ok(first.radius < third.radius);
+  assert.ok(third.radius < sixth.radius);
+  assert.ok(first.power < third.power);
+  assert.ok(third.power < sixth.power);
 });
 
 test("difficulty modes progressively remove clues", () => {

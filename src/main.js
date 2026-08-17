@@ -5,6 +5,7 @@ import {
   BANK_EXPOSURE_RATIO,
   createWordDeck,
   drawWordBankFromDeck,
+  groundImpactProfile,
   shortcutLabel,
   streakMultiplier,
   wordNumberFromShortcut,
@@ -51,6 +52,7 @@ const state = {
   incomingAnimation: null,
   incomingEnd: null,
   gameId: 0,
+  groundImpacts: 0,
   nextRoundTimer: null,
   score: 0,
   streak: 0,
@@ -85,6 +87,7 @@ async function startGame() {
   state.bankBreachRatio = null;
   state.score = 0;
   state.streak = 0;
+  state.groundImpacts = 0;
   state.wordDeck = createWordDeck(WORDS);
   state.bankDeck = createWordDeck(WORDS);
   elements.overlay.hidden = true;
@@ -388,11 +391,14 @@ function handleImpact() {
     return;
   }
 
-  const impactRadius = Math.max(
-    26,
-    Math.min(76, arenaRect.width * (0.032 + Math.random() * 0.04)),
+  state.groundImpacts += 1;
+  const impact = groundImpactProfile(arenaRect.width, state.groundImpacts);
+  terrain.explode(
+    impactX,
+    terrain.getSurfaceY(impactX),
+    impact.radius,
+    impact.power,
   );
-  terrain.explode(impactX, terrain.getSurfaceY(impactX), impactRadius);
   state.streak = 0;
   elements.target.classList.add("impact");
 

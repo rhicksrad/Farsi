@@ -24,6 +24,19 @@ export const DIFFICULTIES = {
 
 export const BANK_EXPOSURE_RATIO = 0.78;
 
+export function groundImpactProfile(width, hitNumber, random = Math.random) {
+  const impact = Math.max(1, Math.trunc(hitNumber));
+  const growth = 1 + (impact - 1) * 0.14;
+  const baseRadius = Math.max(
+    36,
+    Math.min(86, width * (0.04 + random() * 0.045)),
+  );
+  return {
+    radius: Math.min(width * 0.14, baseRadius * growth),
+    power: Math.min(2.4, 1 + (impact - 1) * 0.12),
+  };
+}
+
 export function streakMultiplier(streak) {
   return Math.max(1, Math.trunc(streak));
 }

@@ -68,7 +68,7 @@ export function setupTerrain(arena) {
     return profile[left] + (profile[right] - profile[left]) * progress;
   }
 
-  function explode(x, y, radius = 34) {
+  function explode(x, y, radius = 34, power = 1) {
     const surfaceY = getSurfaceY(x);
     if (Math.abs(y - surfaceY) > radius * 1.35) return false;
 
@@ -76,8 +76,8 @@ export function setupTerrain(arena) {
     if (!changed) return false;
 
     rebuildCollision();
-    spawnDebris(x, Math.min(y, surfaceY), radius);
-    spawnDust(x, Math.min(y, surfaceY), radius);
+    spawnDebris(x, Math.min(y, surfaceY), radius, power);
+    spawnDust(x, Math.min(y, surfaceY), radius, power);
     return true;
   }
 
@@ -102,13 +102,17 @@ export function setupTerrain(arena) {
     Composite.add(engine.world, terrainBodies);
   }
 
-  function spawnDebris(x, y, radius) {
-    const fragmentCount = Math.min(20, Math.max(10, Math.round(radius * 0.32)));
+  function spawnDebris(x, y, radius, power) {
+    const launchScale = Math.sqrt(power);
+    const fragmentCount = Math.min(
+      42,
+      Math.max(14, Math.round(radius * 0.36 * launchScale)),
+    );
     const now = performance.now();
 
     for (let index = 0; index < fragmentCount; index += 1) {
       const angle = Math.PI + Math.random() * Math.PI;
-      const distance = Math.random() * radius * 0.42;
+      const distance = Math.random() * radius * (0.48 + (power - 1) * 0.2);
       const size = 2.2 + Math.random() * Math.min(5.5, radius * 0.085);
       const sides = 6 + Math.floor(Math.random() * 3);
       const body = Bodies.polygon(
@@ -126,8 +130,9 @@ export function setupTerrain(arena) {
       );
       Body.scale(body, 0.72 + Math.random() * 0.65, 0.55 + Math.random() * 0.5);
       Body.rotate(body, Math.random() * Math.PI);
-      const horizontalVelocity = (Math.random() - 0.5) * (radius / 9.5);
-      const upwardVelocity = -(2.2 + Math.random() * radius / 10.5);
+      const horizontalVelocity =
+        (Math.random() - 0.5) * (radius / 7.8) * launchScale;
+      const upwardVelocity = -(2.8 + Math.random() * radius / 8.8 * launchScale);
       Body.setVelocity(body, { x: horizontalVelocity, y: upwardVelocity });
       Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.34);
       const fragment = {
@@ -140,9 +145,12 @@ export function setupTerrain(arena) {
     }
   }
 
-  function spawnDust(x, y, radius) {
+  function spawnDust(x, y, radius, power) {
     const now = performance.now();
-    const particleCount = Math.min(30, Math.max(16, Math.round(radius * 0.48)));
+    const particleCount = Math.min(
+      56,
+      Math.max(20, Math.round(radius * 0.52 * Math.sqrt(power))),
+    );
 
     for (let index = 0; index < particleCount; index += 1) {
       const spread = (Math.random() - 0.5) * radius * 0.9;
@@ -151,8 +159,8 @@ export function setupTerrain(arena) {
         color: Math.random() > 0.45 ? "111 102 79" : "166 151 112",
         life: 650 + Math.random() * 620,
         radius: 1.5 + Math.random() * Math.max(2.5, radius * 0.075),
-        vx: spread * 0.018,
-        vy: -(0.45 + Math.random() * 1.45),
+        vx: spread * 0.018 * Math.sqrt(power),
+        vy: -(0.6 + Math.random() * 1.65 * Math.sqrt(power)),
         x: x + spread * 0.24,
         y: y - 2 - Math.random() * radius * 0.16,
       });
