@@ -228,7 +228,10 @@ function renderBank(words) {
 }
 
 async function fireAnswer(button, word) {
-  if (state.answerLocked) return;
+  if (state.answerLocked || button.disabled) return;
+
+  button.disabled = true;
+  button.classList.add("spent");
 
   if (word.english !== state.currentWord.english) {
     state.streak = 0;

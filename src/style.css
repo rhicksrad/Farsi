@@ -446,6 +446,7 @@ h2 { font-size: 1.15rem; }
 }
 
 .word-shell:disabled { cursor: default; opacity: 0.58; }
+.word-shell.spent { border-color: rgb(226 174 126 / 28%); color: rgb(255 249 233 / 42%); }
 
 .word-shell span {
   display: grid;
