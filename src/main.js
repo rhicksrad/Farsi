@@ -16,6 +16,7 @@ import {
 } from "./game.js";
 import { createDictionaryRound, resetDictionaryDecks } from "./dictionary.js";
 import { setupTerrain } from "./terrain.js";
+import { getTopScores, isOnlineLeaderboardConfigured, submitScore } from "./leaderboard.js";
 
 const elements = {
   arena: document.querySelector("[data-arena]"),
@@ -32,12 +33,20 @@ const elements = {
   instructions: document.querySelector("[data-instructions]"),
   latin: document.querySelector("[data-latin]"),
   lives: document.querySelector("[data-lives]"),
+  leaderboardDialog: document.querySelector("[data-leaderboard-dialog]"),
+  leaderboardDialogList: document.querySelector("[data-leaderboard-dialog-list]"),
+  leaderboardList: document.querySelector("[data-leaderboard-list]"),
+  leaderboardOpen: document.querySelector("[data-leaderboard-open]"),
+  leaderboardClose: document.querySelector("[data-leaderboard-close]"),
   message: document.querySelector("[data-message]"),
   multiplier: document.querySelector("[data-multiplier]"),
   overlay: document.querySelector("[data-overlay]"),
   persian: document.querySelector("[data-persian]"),
   phonetic: document.querySelector("[data-phonetic]"),
   restart: document.querySelector("[data-restart]"),
+  scoreForm: document.querySelector("[data-score-form]"),
+  scoreStatus: document.querySelector("[data-score-status]"),
+  playerInitials: document.querySelector("[data-player-initials]"),
   score: document.querySelector("[data-score]"),
   streak: document.querySelector("[data-streak]"),
   target: document.querySelector("[data-target]"),
@@ -82,6 +91,15 @@ elements.textSize.addEventListener("change", () => {
   applyTextSize(elements.textSize.value);
 });
 elements.restart.addEventListener("click", () => void startGame());
+elements.leaderboardOpen.addEventListener("click", () => void openLeaderboard());
+elements.leaderboardClose.addEventListener("click", closeLeaderboard);
+elements.leaderboardDialog.addEventListener("click", (event) => {
+  if (event.target === elements.leaderboardDialog) closeLeaderboard();
+});
+elements.scoreForm.addEventListener("submit", saveScore);
+elements.playerInitials.addEventListener("input", () => {
+  elements.playerInitials.value = elements.playerInitials.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 3);
+});
 document.addEventListener("keydown", handleWordShortcut, true);
 
 const terrain = setupTerrain(elements.arena);
@@ -113,6 +131,7 @@ async function startGame() {
   state.wordDeck = createWordDeck(WORDS);
   state.bankDeck = createWordDeck(WORDS);
   elements.overlay.hidden = true;
+  elements.scoreForm.classList.remove("saved");
   elements.answerPanel.classList.remove("exposed", "hit");
   elements.target.className = "incoming-word";
   elements.target.style.opacity = "0";
@@ -344,6 +363,10 @@ function renderBank(words) {
 }
 
 function handleWordShortcut(event) {
+  if (event.key === "Escape" && !elements.leaderboardDialog.hidden) {
+    closeLeaderboard();
+    return;
+  }
   if (event.repeat || event.altKey || event.metaKey || event.shiftKey) return;
 
   const number = wordNumberFromShortcut(event.code, event.ctrlKey);
@@ -488,7 +511,69 @@ function endGame() {
   cancelIncoming();
   setBankDisabled(true);
   elements.finalScore.textContent = state.score.toLocaleString();
+  elements.scoreForm.hidden = false;
+  elements.playerInitials.disabled = false;
+  elements.scoreForm.querySelector("button").disabled = false;
+  elements.playerInitials.value = localStorage.getItem("wordfall-initials") ?? "";
+  elements.scoreStatus.textContent = isOnlineLeaderboardConfigured()
+    ? "Exactly 3 letters or numbers"
+    : "Local scoreboard · connect Supabase to share scores";
   elements.overlay.hidden = false;
+  void refreshLeaderboards();
+  window.setTimeout(() => elements.playerInitials.focus(), 50);
+}
+
+async function saveScore(event) {
+  event.preventDefault();
+  const initials = elements.playerInitials.value;
+  if (!/^[A-Z0-9]{3}$/.test(initials)) {
+    elements.scoreStatus.textContent = "Enter exactly 3 letters or numbers.";
+    elements.playerInitials.focus();
+    return;
+  }
+  const button = elements.scoreForm.querySelector("button");
+  button.disabled = true;
+  elements.playerInitials.disabled = true;
+  elements.scoreStatus.textContent = "Saving…";
+  try {
+    const scores = await submitScore(initials, state.score, state.difficulty, state.direction);
+    localStorage.setItem("wordfall-initials", initials);
+    renderLeaderboard(elements.leaderboardList, scores);
+    renderLeaderboard(elements.leaderboardDialogList, scores);
+    elements.scoreStatus.textContent = "Score saved!";
+    elements.scoreForm.classList.add("saved");
+  } catch (error) {
+    elements.scoreStatus.textContent = error.message;
+    button.disabled = false;
+    elements.playerInitials.disabled = false;
+  }
+}
+
+async function refreshLeaderboards() {
+  const scores = await getTopScores();
+  renderLeaderboard(elements.leaderboardList, scores);
+  renderLeaderboard(elements.leaderboardDialogList, scores);
+}
+
+function renderLeaderboard(list, scores) {
+  list.replaceChildren();
+  for (let rank = 0; rank < 10; rank += 1) {
+    const entry = scores[rank];
+    const item = document.createElement("li");
+    item.innerHTML = `<span>${String(rank + 1).padStart(2, "0")}</span><strong>${entry?.initials ?? "---"}</strong><em>${entry ? entry.score.toLocaleString() : "0"}</em>`;
+    list.append(item);
+  }
+}
+
+async function openLeaderboard() {
+  elements.leaderboardDialog.hidden = false;
+  await refreshLeaderboards();
+  elements.leaderboardClose.focus();
+}
+
+function closeLeaderboard() {
+  elements.leaderboardDialog.hidden = true;
+  elements.leaderboardOpen.focus();
 }
 
 function cancelIncoming() {

@@ -39,6 +39,11 @@
             </span>
           </div>
 
+          <button class="leaderboard-trigger" type="button" data-leaderboard-open>
+            <span aria-hidden="true">★</span>
+            <strong>TOP 10</strong>
+          </button>
+
           <button
             class="direction-toggle"
             type="button"
@@ -121,12 +126,36 @@
             </div>
 
             <div class="game-overlay" data-overlay hidden>
-              <p class="eyebrow">Word bank hit</p>
-              <h2>Rebuild and try again.</h2>
-              <p>You scored <strong data-final-score>0</strong> points.</p>
-              <button class="primary-button" type="button" data-restart>
-                Play again
-              </button>
+              <div class="game-over-card">
+                <div class="game-over-copy">
+                  <p class="eyebrow">Word bank hit</p>
+                  <h2>Rebuild and try again.</h2>
+                  <p>You scored <strong data-final-score>0</strong> points.</p>
+                  <form class="initials-form" data-score-form>
+                    <label for="player-initials">Enter your initials</label>
+                    <div>
+                      <input id="player-initials" data-player-initials maxlength="3" inputmode="text" autocomplete="off" pattern="[A-Za-z0-9]{3}" aria-describedby="initials-help" required />
+                      <button class="score-submit" type="submit">SAVE SCORE</button>
+                    </div>
+                    <small id="initials-help" data-score-status>Exactly 3 letters or numbers</small>
+                  </form>
+                  <button class="primary-button" type="button" data-restart>Play again</button>
+                </div>
+                <section class="arcade-board" aria-labelledby="leaderboard-title">
+                  <p class="arcade-kicker">Hall of fire</p>
+                  <h2 id="leaderboard-title">TOP 10</h2>
+                  <ol data-leaderboard-list aria-live="polite"></ol>
+                </section>
+              </div>
+            </div>
+
+            <div class="leaderboard-dialog" data-leaderboard-dialog hidden>
+              <section class="arcade-board" role="dialog" aria-modal="true" aria-labelledby="leaderboard-dialog-title">
+                <button class="leaderboard-close" type="button" data-leaderboard-close aria-label="Close leaderboard">×</button>
+                <p class="arcade-kicker">Hall of fire</p>
+                <h2 id="leaderboard-dialog-title">TOP 10</h2>
+                <ol data-leaderboard-dialog-list aria-live="polite"></ol>
+              </section>
             </div>
           </div>
         </section>

@@ -33,3 +33,13 @@ Scored lessons use a 415-word, three-level curriculum selected from a learner fr
 ## Deployment
 
 Pull requests and pushes to `main` run CI. Pushes to `main` also build the Vite app and deploy `dist/` to GitHub Pages through the official Pages Actions workflow.
+
+## Online leaderboard (Supabase)
+
+The game includes an arcade-style, three-character top-10 scoreboard. Without configuration it works locally in the browser. To share scores between players:
+
+1. Create a Supabase project and run `supabase/migrations/20260819000000_create_leaderboard.sql` in the SQL editor.
+2. Copy `.env.example` to `.env` and add the project URL and publishable/anon key.
+3. Add the same `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` values to the deployment environment.
+
+Only the public anon key belongs in the browser; never use a service-role key here.
