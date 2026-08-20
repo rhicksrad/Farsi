@@ -620,9 +620,7 @@ h2 { font-size: 1.15rem; }
   font-size: 0.66em;
   font-weight: 650;
   text-align: left;
-  text-overflow: ellipsis;
   text-transform: none;
-  white-space: nowrap;
   cursor: pointer;
   transition: 130ms ease;
 }
@@ -657,9 +655,9 @@ h2 { font-size: 1.15rem; }
 
 .word-label {
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .word-shell.persian-bank .word-label {
